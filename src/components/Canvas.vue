@@ -26,10 +26,7 @@
         <div class="w-full sm:w-1/3">
           <div v-if="this.$route.name === 'Certificates'">pdf
             <pdf src="https://www.africau.edu/images/default/sample.pdf"></pdf>
-
-
           </div>
-          card
         </div>
       </div>
       <div class="h-2/6">
