@@ -10,8 +10,7 @@
 
   export default {
     components: {
-      // Header
-      Canvas
+      Canvas,
     }
   }
 </script>

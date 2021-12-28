@@ -6,13 +6,19 @@ module.exports = {
   },
   // mode: 'jit',
   plugins: [
-    require('@tailwindcss/aspect-ratio')
+    require('@tailwindcss/aspect-ratio') //not needed
   ],
   theme: {
     extend: {
       spacing: {
-        '15': '60vw',
-      }
+        '15': '60vw', //not needed
+      },
+      animation: ['group-hover'],
+    }
+  },
+  variants: {
+    extend: {
+     animation: ['hover', 'focus'],
     }
   }
 };
