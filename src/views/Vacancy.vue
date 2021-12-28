@@ -1,5 +1,22 @@
 <template>
-  <div class="about">
-    Vabad töökohad
+  <div class="location flex">
+    <div class="w-1/3">
+      <div>
+        Vabad töökohad
+      </div>
+    </div>
+    <div class="w-1/3">
+    </div>
+    <div class="w-1/3">
+    </div>
   </div>
 </template>
+
+<style scoped>
+  .location {
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 2.2vh;
+  }
+</style>

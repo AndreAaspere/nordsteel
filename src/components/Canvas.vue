@@ -1,18 +1,18 @@
 <template>
   <div class="flex justify-center bg-blue-300 canvas-parent">
-    <div class="canvas bg-blue-400">
-      <div class="bg-blue-500 h-1/6 flex">
-        <div class="w-1/2">
+    <div class="canvas">
+      <div class="h-1/6 flex flex-col sm:flex-row">
+        <div class="w-full h-1/2 sm:h-full sm:w-1/2 bg-blue-500">
           <img alt="logo" class="logo z-10 h-1/2" :src="require('@/assets/logo.svg')">
         </div>
-        <div class="w-1/2 bg-blue-700 flex justify-end">
+        <div class="w-full h-1/2 sm:h-full sm:w-1/2 bg-blue-700 flex justify-end">
           <svg class="menuicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
           </svg>
         </div>
       </div>
-      <div class="bg-blue-600 h-3/6 flex">
-        <div class="bg-blue-800 flex w-1/3">
+      <div class="bg-blue-600 h-3/6 flex flex-col-reverse sm:flex-row">
+        <div class="bg-blue-800 flex w-full sm:w-1/3">
           <div id="nav" class="menu flex flex-col">
             <router-link class="nav-link" to="/about">ETTEVÕTTEST</router-link>
             <router-link class="nav-link" to="/contact">KONTAKT</router-link>
@@ -23,7 +23,7 @@
             <router-link class="nav-link" to="/">>></router-link>
           </div>
         </div>
-        <div>b2</div>
+        <div class="w-full sm:w-1/3">card</div>
       </div>
       <div class="h-2/6">
         <div class="bg-blue-900 separator"></div>
@@ -49,7 +49,6 @@ export default {
 .canvas-parent {
   height: 100%;
   font-family: Verdana, sans-serif;
-    /* font-weight: bold; */
 }
 .canvas {
   width: 140vh;

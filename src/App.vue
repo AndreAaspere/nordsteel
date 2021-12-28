@@ -1,8 +1,6 @@
 <template>
-  <div class="bg-blue-100 h-screen">
+  <div class="sm:h-screen">
     <Canvas/>
-
-    <!-- <router-view/> -->
   </div>
 </template>
 
