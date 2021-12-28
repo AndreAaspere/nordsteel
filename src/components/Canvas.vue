@@ -23,7 +23,14 @@
             <router-link v-on:click="emitValue()" class="nav-link" to="/">>></router-link>
           </div>
         </div>
-        <div class="w-full sm:w-1/3">card</div>
+        <div class="w-full sm:w-1/3">
+          <div v-if="this.$route.name === 'Certificates'">pdf
+            <pdf src="https://www.africau.edu/images/default/sample.pdf"></pdf>
+
+
+          </div>
+          card
+        </div>
       </div>
       <div class="h-2/6">
         <div
@@ -41,19 +48,23 @@
 
 <script>
 import { ref } from 'vue';
+import pdf from 'vue-pdf'
 
 export default {
   name: 'Canvas',
   setup() {
     const showMenu = ref(false)
+    const displayCertificate = ref(false)
+    displayCertificate.value = false
 
     function emitValue() {
       showMenu.value = !showMenu.value
     }
-
     return {
       showMenu,
-      emitValue
+      emitValue,
+      displayCertificate,
+      pdf
     }
 }
 }
@@ -95,8 +106,8 @@ export default {
   @apply text-gray-700 cursor-pointer z-40 hover:text-gray-500;
 }
 .menu {
-  padding: 10%;
-  font-size: 2.6vh;
+  padding: 15%;
+  font-size: 2.4vh;
   font-weight: bold;
 }
 #nav a.router-link-exact-active {
