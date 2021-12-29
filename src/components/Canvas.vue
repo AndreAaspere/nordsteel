@@ -44,6 +44,7 @@
             {{ message }}
           </div>
           <Map class="absolute z-20 h-full w-full map" v-if="this.$route.name === 'Location' && showMenu"/>
+          <iframe class="absolute z-20 h-full w-full"  v-if="this.$route.name === 'Certificates' && showMenu" src="/test.pdf" width="50%" height="100%"></iframe>
           <img
             alt="postmark"
             :src="require('@/assets/postmark.svg')"
