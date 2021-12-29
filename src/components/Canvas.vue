@@ -15,21 +15,20 @@
         <div class="bg-gray-400 flex w-full sm:w-1/3">
           <!-- menu -->
           <!-- rings 1 -->
-          <div class="w-full rings-section-1 flex flex-row">
-            {{boo}}
+          <div v-if="!showMenu" class="w-full rings-section-1 flex flex-row">
             <div class="w-1/2" v-on:mouseover="boo = true">
               <!-- ring 1 -->
-              <Ring1/>
+              <Ring1 class="ring1"/>
             </div>
             <div class="w-1/2 h-full">
               <!-- ring 2 -->
-              <div class="h-1/2"><Ring1/></div>
+              <div><Ring1 class="ring2" /></div>
               <!-- ring 3 -->
-              <div class=""><Ring1/></div>
+              <div><Ring1 class="ring3"/></div>
             </div>
           </div>
-          <div class="rings flex flex-row">
-          </div>
+          <!-- <div class="rings flex flex-row">
+          </div> -->
           <div v-if="showMenu" id="nav" class="menu flex flex-col">
             <router-link class="nav-link" to="/about">ETTEVÕTTEST</router-link>
             <router-link class="nav-link" to="/contact">KONTAKT</router-link>
@@ -40,11 +39,12 @@
             <router-link v-on:click="emitValue()" class="nav-link" to="/">>></router-link>
           </div>
         </div>
+        <!-- postmark -->
         <div class="w-full sm:w-2/3">
               <img
               alt="postmark"
               :src="require('@/assets/postmark.svg')"
-              class="h-5/6"
+              class="postmark"
             >
           <div v-if="this.$route.name === 'Certificates'">pdf
             <pdf src="https://www.africau.edu/images/default/sample.pdf"></pdf>
@@ -60,7 +60,7 @@
         <!-- view -->
         <div class="bg-gray-300 view">
           <!-- rings 2 -->
-          <div class="flex w-full">
+          <div v-if="!showMenu" class="flex w-full">
             <div class="ring4"><Ring1/></div>
             <div class="ring5"><Ring1/></div>
             <div class="ring6"><Ring1/></div>
@@ -113,6 +113,9 @@ export default {
 .canvas-resize {
 
 }
+.postmark {
+  @apply h-full;
+}
 .separator {
   height: 5%;
   @apply bg-gray-900;
@@ -149,28 +152,34 @@ export default {
   /* @apply ring-offset-0 cursor-pointer; */
 }
 .ring1 {
-  /* width: 20%; */
+  margin-top: 40%;
+  width: 90%;
 }
 .ring2 {
-  /* width: 20%; */
+  width: 100%;
 }
 .ring3 {
-  /* width: 20%; */
+  margin-top: 10%;
+  margin-left: 30%;
+  width: 70%;
 }
 .ring4 {
-  width: 30%;
+  margin-top: -13%;
+  width: 28%;
 }
 .ring5 {
   width: 17.5%;
 }
 .ring6 {
-  width: 17.5%;
+  margin-top: 2.3%;
+  width: 13%;
 }
 .ring7 {
-  width: 17.5%;
+  width: 17%;
 }
 .ring8 {
-  width: 17.5%;
+  margin-top: 2.3%;
+  width: 13%;
 }
 .ring9 {
 }
