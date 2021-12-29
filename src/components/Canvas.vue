@@ -20,7 +20,7 @@
               <!-- ring 1 -->
               <Ring1 id="ring1" class="ring1" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave"/>
             </div>
-            <div class="w-1/2 h-full">
+            <div class="w-1/2 h-full flex flex-row sm:flex-col">
               <!-- ring 2 -->
               <div><Ring1 id="ring2" class="ring2" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
               <!-- ring 3 -->
@@ -56,29 +56,35 @@
       <div class="h-2/6">
         <!-- separator -->
         <div
-          class="bg-gray-500"
+          class="hidden sm:block bg-gray-500"
           v-bind:class="{ 'separator': showMenu, 'separator-hidden': !showMenu}"
         ></div>
         <!-- view -->
         <div class="bg-gray-300 view">
           <!-- rings 2 -->
-          <div v-if="!showMenu" class="flex w-full">
-            <div class="ring4">
-              <div><Ring1 id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+          <div v-if="!showMenu" class="flex flex-col h-full sm:flex-row w-full">
+            <div class="bg-gray-500 w-full h-1/2 sm:w-3/5 flex flex-row">
+              <div class="ring4">
+                <div><Ring1 id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              </div>
+              <div class="ring5">
+                <div><Ring1 id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              </div>
+              <div class="ring6">
+                <div><Ring1 id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              </div>
             </div>
-            <div class="ring5">
-              <div><Ring1 id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+            <div class="bg-gray-400 w-full h-1/2 sm:w-2/5 flex flex-row">
+              <div class="ring7">
+                <div><Ring1 id="ring7" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              </div>
+              <div class="ring8">
+                <div><Ring1 id="ring8" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              </div>
+              <div class="ring9 block sm:hidden">
+                <div><Ring1 id="ring9" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              </div>
             </div>
-            <div class="ring6">
-              <div><Ring1 id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
-            </div>
-            <div class="ring7">
-              <div><Ring1 id="ring7" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
-            </div>
-            <div class="ring8">
-              <div><Ring1 id="ring8" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
-            </div>
-            <div class="ring9 hidden">r9</div>
           </div>
           <router-view v-if="showMenu"/>
         </div>
@@ -134,8 +140,6 @@ export default {
       mouseover,
       mouseleave,
       message
-      // RingA,
-      // pdf
     }
 }
 }
@@ -191,7 +195,7 @@ export default {
   font-weight: bold;
 }
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #e97e04;
 }
 .ring {
   /* @apply ring-offset-0 cursor-pointer; */
@@ -209,23 +213,27 @@ export default {
   width: 70%;
 }
 .ring4 {
-  margin-top: -13%;
-  width: 28%;
+  margin-top: -20%;
+  width: 46%;
 }
 .ring5 {
-  width: 17.5%;
+  width: 27%;
 }
 .ring6 {
-  margin-top: 2.3%;
-  width: 13%;
+  margin-top: 4%;
+  margin-left: 4%;
+  width: 20%;
 }
 .ring7 {
-  width: 17%;
+  width: 40%;
 }
 .ring8 {
-  margin-top: 2.3%;
-  width: 13%;
+  margin-top: 5%;
+  margin-left: 4%;
+  width: 30%;
 }
 .ring9 {
+  margin-top: 2.3%;
+  width: 13%;
 }
 </style>
