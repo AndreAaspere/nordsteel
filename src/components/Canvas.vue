@@ -16,19 +16,17 @@
           <!-- menu -->
           <!-- rings 1 -->
           <div v-if="!showMenu" class="w-full rings-section-1 flex flex-row">
-            <div class="w-1/2" v-on:mouseover="boo = true">
+            <div class="w-1/2">
               <!-- ring 1 -->
-              <Ring1 class="ring1"/>
+              <Ring1 id="ring1" class="ring1" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave"/>
             </div>
             <div class="w-1/2 h-full">
               <!-- ring 2 -->
-              <div><Ring1 class="ring2" /></div>
+              <div><Ring1 id="ring2" class="ring2" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
               <!-- ring 3 -->
-              <div><Ring1 class="ring3"/></div>
+              <div><Ring1 id="ring3" class="ring3" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
             </div>
           </div>
-          <!-- <div class="rings flex flex-row">
-          </div> -->
           <div v-if="showMenu" id="nav" class="menu flex flex-col">
             <router-link class="nav-link" to="/about">ETTEVÕTTEST</router-link>
             <router-link class="nav-link" to="/contact">KONTAKT</router-link>
@@ -40,12 +38,16 @@
           </div>
         </div>
         <!-- postmark -->
-        <div class="w-full sm:w-2/3">
-              <img
-              alt="postmark"
-              :src="require('@/assets/postmark.svg')"
-              class="postmark"
-            >
+        <div class="w-full sm:w-2/3 relative">
+          <!-- ring message -->
+          <div class="message absolute z-10 text-white w-1/2">
+            {{ message }}
+          </div>
+          <img
+            alt="postmark"
+            :src="require('@/assets/postmark.svg')"
+            class="postmark relative"
+          >
           <div v-if="this.$route.name === 'Certificates'">pdf
             <pdf src="https://www.africau.edu/images/default/sample.pdf"></pdf>
           </div>
@@ -61,11 +63,21 @@
         <div class="bg-gray-300 view">
           <!-- rings 2 -->
           <div v-if="!showMenu" class="flex w-full">
-            <div class="ring4"><Ring1/></div>
-            <div class="ring5"><Ring1/></div>
-            <div class="ring6"><Ring1/></div>
-            <div class="ring7"><Ring1/></div>
-            <div class="ring8"><Ring1/></div>
+            <div class="ring4">
+              <div><Ring1 id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+            </div>
+            <div class="ring5">
+              <div><Ring1 id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+            </div>
+            <div class="ring6">
+              <div><Ring1 id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+            </div>
+            <div class="ring7">
+              <div><Ring1 id="ring7" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+            </div>
+            <div class="ring8">
+              <div><Ring1 id="ring8" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+            </div>
             <div class="ring9 hidden">r9</div>
           </div>
           <router-view v-if="showMenu"/>
@@ -85,8 +97,31 @@ export default {
   components: { Ring1 },
   setup() {
     const showMenu = ref(false)
+    const message = ref('')
     const displayCertificate = ref(false)
     displayCertificate.value = false
+
+    const messages = {
+      ring1: 'Ring 1 message this is a long long message you have there why not so long you see',
+      ring2: 'Ring 2 message',
+      ring3: 'Ring 3 message',
+      ring4: 'Ring 4 message',
+      ring5: 'Ring 5 message',
+      ring6: 'Ring 6 message',
+      ring7: 'Ring 8 message',
+      ring8: 'Ring 8 message',
+    }
+
+    function mouseover(event) {
+      const key = event.srcElement.id
+      message.value = messages[key]
+    }
+
+    function mouseleave() {
+      console.log('leave')
+      message.value = ''
+    }
+
 
     function emitValue() {
       showMenu.value = !showMenu.value
@@ -95,6 +130,10 @@ export default {
       showMenu,
       emitValue,
       displayCertificate,
+      messages,
+      mouseover,
+      mouseleave,
+      message
       // RingA,
       // pdf
     }
@@ -115,6 +154,12 @@ export default {
 }
 .postmark {
   @apply h-full;
+}
+.message {
+  padding-top: 3%;
+  padding-left: 3%;
+  font-size: 2.4vh;
+  text-shadow: 1px 1px #583003;
 }
 .separator {
   height: 5%;
