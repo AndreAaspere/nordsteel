@@ -43,6 +43,7 @@
           <div class="message absolute z-10 text-white w-1/2">
             {{ message }}
           </div>
+          <Map class="absolute z-20 h-full w-full map" v-if="this.$route.name === 'Location' && showMenu"/>
           <img
             alt="postmark"
             :src="require('@/assets/postmark.svg')"
@@ -97,10 +98,11 @@
 <script>
 import { ref } from 'vue';
 import Ring1 from './Ring1.vue'
+import Map from './Map.vue'
 
 export default {
   name: 'Canvas',
-  components: { Ring1 },
+  components: { Ring1, Map },
   setup() {
     const showMenu = ref(false)
     const message = ref('')
@@ -158,6 +160,9 @@ export default {
 }
 .postmark {
   @apply h-full;
+}
+.map {
+  padding: 5% 
 }
 .message {
   padding-top: 3%;
