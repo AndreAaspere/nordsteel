@@ -11,22 +11,24 @@
         Viljandimaa, Mulgi vald
       </div>
       <div>
-        Eesti
+        {{ $t('views.contact.country') }}
       </div>
     </div>
     <div class="w-1/3">
       <div>
-        Reg. nr. 14943863
+        {{ $t('views.contact.reg') }}
+        14943863
       </div>
       <div>
-        VAT nr. EE102245666
+        {{ $t('views.contact.vat') }}
+        EE102245666
       </div>
     </div>
     <div class="w-1/3 flex flex-col">
       <a href = "mailto: info@nordsteel.ee">info@nordsteel.ee</a>
       <a href="tel:+372 56232676">+372 56232676</a>
       <div>
-        Raamatupidamine:
+        {{ $t('views.contact.accounting') }}
       </div>
       <a href = "mailto: arved@nordsteel.ee">arved@nordsteel.ee</a>
     </div>

@@ -5,7 +5,7 @@
         Kuido Kasak
       </div>
       <div class="flex justify-center">
-        Tootmisjuht
+        {{$t('views.team.productionmanager')}}
       </div>
       <a class="flex justify-center" href = "mailto: kuido@nordsteel.ee">kuido@nordsteel.ee</a>
       <a class="flex justify-center" href="tel: +372 56232676"> +372 56232676</a>
@@ -15,7 +15,7 @@
         Tarmo Soots
       </div>
       <div class="flex justify-center">
-        Arendusjuht
+        {{$t('views.team.develpomentmanager')}}
       </div>
       <a class="flex justify-center" href = "mailto: tarmo@nordsteel.ee">tarmo@nordsteel.ee</a>
       <a class="flex justify-center" href="tel: +372 56891936">+372 56891936</a>
@@ -25,7 +25,7 @@
         Johannes Kasak
       </div>
       <div class="flex justify-center">
-        Projektijuht
+        {{$t('views.team.projectmanager')}}
       </div>
       <a class="flex justify-center" href = "mailto: johannes@nordsteel.ee">johannes@nordsteel.ee</a>
       <a class="flex justify-center" href="tel:+372 53472816">+372 53472816</a>

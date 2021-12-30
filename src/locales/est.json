@@ -1,0 +1,70 @@
+{
+  "message": "this is the message",
+  "nav": {
+    "about": "ETTEVÕTTEST",
+    "contact": "KONTAKT",
+    "location": "ASUKOHT",
+    "certificates": "SERTIFIKAADID",
+    "team": "MEESKOND",
+    "vacancy": "VABAD TÖÖKOHAD"
+  },
+  "views": {
+    "about": "NordSteel OÜ põhitegevuseks on armatuurrauast detailide ja valmiskarkasside tootmine nii paneelitehastele, kui ka ehitusobjektidele.",
+    "contact": {
+      "country": "Eesti",
+      "reg": "Reg. nr.",
+      "vat": "VAT nr.",
+      "accounting": "Raamatupidamine:"
+    },
+    "location": "location",
+    "certificates": "certificates",
+    "team": {
+      "productionmanager": "Tootmisjuht",
+      "develpomentmanager": "Arendusjuht",
+      "projectmanager": "Projektijuht"
+    },
+    "vacancy": "Vabad töökohad"
+  },
+  "rings": {
+    "home": {
+      "header": "TERE!",
+      "text": "KURSORIGA RÕNGASTEL LIIKUDES LEIAD NORDSTEELE OÜ TEENUSTE JA TOODETE VALIKU."
+    },
+    "ring1": {
+      "header": "Põranda-, seina-, ja trepidelemendid",
+      "text": "Koostame erineva kuju ja raskusastmega armatuurrauast karkasse, mis ei vaja raketisse asetamisel lisatöid või lõppviimistlust. Saame detailidele lisada enamuse taridetaile, vajadusel ka tõsteaasad ja seinakingad. Standard olukorras saame toota detaile laiusega 3,5 m ja pikkusega 12 m."
+    },
+    "ring2": {
+      "header": "Postid, riivid, talad ja sillused",
+      "text": "Valmistame postikarkasse nii konsoolidega kui ka ilma. Valmis armeeringuid teostame nii betoontoodete tehastele kui ka tsiviilehituse otstarbeks. Vajadusel lisame taridetailid, tõsteaasad ja postikingad. Valmis armeeringuid saab vormidesse asetada ilma liigsete lisatöödeta, mis kiirendab oluliselt betoonosade valmimise kiirust. Hetkel saame valmistada standardlahendusena kuni 15m karkasse, eritellimusel kuni 24 m."
+    },
+    "ring3": {
+      "header": "Erivõrgud",
+      "text": "Toodame erivõrke materjalist d-8 kuni d-20. Saame toota armatuurvõrke 3,5 m * 12 m. Võrgud võivad olla nii astmete kui ka avadega. Hinna kujundab ainult lõppkaal. Suurimateks tellijateks on täna betoonpõrandate valmistajad, kelledele teostame võrke vastavalt ruumi mõõtmetele. Kõigi võrkude puhul teeme kliendile paigaldusjoonised ja kõik võrgud valmistatakse nõuetekohaste üle katetega. Kliendil on vaja võrgud etteantud järjekorras paigaldada ja omavahel siduda."
+    },
+    "ring4": {
+      "header": "Painutatud detailid",
+      "text": "Vääname armatuurrauast detaile vahemikus d-8 kuni d-32. Väänamisel kasutame ainult B500B armatuurrauda. Eritellimusel võimalik tellida ka B500A ja B500C materjalist detaile. Töid teostame täisautomaatsete uute Itaalia ettevõtte MEP tööpinkidega."
+    },
+    "ring5": {
+      "header": "Sirge armatuurraud",
+      "text": "Meie ettevõttest saab tellida mõõtu lõigatud sirget armatuurterast. Maksma peab reaalse kaalu alusel. Jääkide eest eraldi tasu ei pea maksma."
+    },
+    "ring6": {
+      "header": "Ehitusprojekti põhine armatuurraud",
+      "text": "Valmistame vastavalt projekti kogumahule vastavalt spetsifikatsioonile väänatuid, sirgeid või siis valmis armeeringuid. Sellega ei kaasne tellijale objektil jääke ja kogu projekti maksumus on kogu ehitusperioodiks fikseeritud."
+    },
+    "ring7": {
+      "header": "Armeerimisteenus",
+      "text": "Tiheda graafikuga ehitusobjektidel, on tihti vaja just armeerimistöid teostada suure kiirusega. Selle võimaldamiseks, oleme loonud ettevõttes osakonna, kes tegeleb armeerimisega väljaspool tootmishoonet. Meie tehases valmistatakse teostusjoonised ja vastavalt sellel teostatakse ette koguvajamine materjal. See tagab kiire armeerimise ehitusobjektil. Näiteks vahelae 500 m2 oleme valmis kogu ulatuses armeerima 24 tunni jooksul. Teenuse hind on kg põhine ja maksumus kujuneb paigaldatud armeeringu kogukaalu pealt."
+    },
+    "ring8": {
+      "header": "Vaiakarkassid",
+      "text": "Valmistame puurvaiade tarbeks armatuurkarkasse, millede pikkus on täna maksimaalselt 18 m. Eritööna oleme valmistanud ka 24 m vaiakarkasse."
+    },
+    "ring9": {
+      "header": "Tõsteaasad",
+      "text": "Valmistame erineva kuju ja läbimõõduga tõsteaasasid, nii mustast metallist S235, S355 kui ka roostevabast terasest."
+    }
+  }
+}

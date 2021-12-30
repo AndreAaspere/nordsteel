@@ -28,20 +28,21 @@
             </div>
           </div>
           <div v-if="showMenu" id="nav" class="menu flex flex-col">
-            <router-link class="nav-link" to="/about">ETTEVÕTTEST</router-link>
-            <router-link class="nav-link" to="/contact">KONTAKT</router-link>
-            <router-link class="nav-link" to="/location">ASUKOHT</router-link>
-            <router-link class="nav-link" to="/certificates">SERTIFIKAADID</router-link>
-            <router-link class="nav-link" to="/team">MEESKOND</router-link>
-            <router-link class="nav-link" to="/vacancy">VABAD TÖÖKOHAD</router-link>
+            <router-link class="nav-link" to="/about">{{$t('nav.about')}}</router-link>
+            <router-link class="nav-link" to="/contact">{{$t('nav.contact')}}</router-link>
+            <router-link class="nav-link" to="/location">{{$t('nav.location')}}</router-link>
+            <router-link class="nav-link" to="/certificates">{{$t('nav.certificates')}}</router-link>
+            <router-link class="nav-link" to="/team">{{$t('nav.team')}}</router-link>
+            <router-link class="nav-link" to="/vacancy">{{$t('nav.vacancy')}}</router-link>
             <router-link v-on:click="emitValue()" class="nav-link" to="/">>></router-link>
           </div>
         </div>
         <!-- postmark -->
         <div class="w-full sm:w-2/3 relative">
           <!-- ring message -->
-          <div class="message absolute z-10 text-white w-1/2">
-            {{ message }}
+          <div class="message absolute z-10 text-white w-full flex flex-col">
+            <div class="message-header">{{ messageHeader }}</div>
+            <div>{{ messageText }}</div>
           </div>
           <Map class="absolute z-20 h-full w-full map" v-if="this.$route.name === 'Location' && showMenu"/>
           <iframe class="absolute z-20 h-full w-full"  v-if="this.$route.name === 'Certificates' && showMenu" src="/test.pdf" width="50%" height="100%"></iframe>
@@ -60,6 +61,7 @@
         ></div>
         <!-- view -->
         <div class="bg-gray-300 view">
+
           <!-- rings 2 -->
           <div v-if="!showMenu" class="flex flex-col h-full sm:flex-row w-full">
             <div class="bg-gray-500 w-full h-1/2 sm:w-3/5 flex flex-row">
@@ -97,37 +99,56 @@
 import { ref } from 'vue';
 import Ring1 from './Ring1.vue'
 import Map from './Map.vue'
+import { useI18n } from 'vue-i18n'
+
 
 export default {
   name: 'Canvas',
   components: { Ring1, Map },
   setup() {
+    const {t} = useI18n({})
+     console.log(t('someWord'))
+
     const showMenu = ref(false)
-    const message = ref('')
     const displayCertificate = ref(false)
     displayCertificate.value = false
 
     const messages = {
-      ring1: 'Ring 1 message this is a long long message you have there why not so long you see',
-      ring2: 'Ring 2 message',
-      ring3: 'Ring 3 message',
-      ring4: 'Ring 4 message',
-      ring5: 'Ring 5 message',
-      ring6: 'Ring 6 message',
-      ring7: 'Ring 8 message',
-      ring8: 'Ring 8 message',
+      ring1Header: t('rings.ring1.header'),
+      ring1Text: t('rings.ring1.text'),
+      ring2Header: t('rings.ring2.header'),
+      ring2Text: t('rings.ring2.text'),
+      ring3Header: t('rings.ring3.header'),
+      ring3Text: t('rings.ring3.text'),
+      ring4Header: t('rings.ring4.header'),
+      ring4Text: t('rings.ring4.text'),
+      ring5Header: t('rings.ring5.header'),
+      ring5Text: t('rings.ring5.text'),
+      ring6Header: t('rings.ring6.header'),
+      ring6Text: t('rings.ring6.text'),
+      ring7Header: t('rings.ring7.header'),
+      ring7Text: t('rings.ring7.text'),
+      ring8Header: t('rings.ring8.header'),
+      ring8Text: t('rings.ring8.text'),
+      ring9Header: t('rings.ring9.header'),
+      ring9Text: t('rings.ring9.text'),
+      homeHeader: t('rings.home.header'),
+      homeText: t('rings.home.text'),
     }
+
+    const messageHeader = ref(messages.homeHeader)
+    const messageText = ref(messages.homeText)
 
     function mouseover(event) {
       const key = event.srcElement.id
-      message.value = messages[key]
+      messageHeader.value = messages[key+'Header']
+      messageText.value = messages[key+'Text']
     }
 
     function mouseleave() {
-      console.log('leave')
-      message.value = ''
+      messageHeader.value = messages.homeHeader
+      messageText.value = messages.homeText
     }
-
 
     function emitValue() {
       showMenu.value = !showMenu.value
@@ -136,10 +157,10 @@ export default {
       showMenu,
       emitValue,
       displayCertificate,
-      messages,
       mouseover,
       mouseleave,
-      message
+      messageHeader,
+      messageText,
     }
 }
 }

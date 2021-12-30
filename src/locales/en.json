@@ -1,0 +1,30 @@
+{
+  "message": "this is the message",
+  "nav": {
+    "about": "ABOUT",
+    "contact": "CONTACT",
+    "location": "LOCATION",
+    "certificates": "CERTIFICATES",
+    "team": "TEAM",
+    "vacancy": "VACANCY"
+  },
+  "views": {
+    "about": "about",
+    "contact": "contact",
+    "location": "location",
+    "certificates": "certificates",
+    "team": "team",
+    "vacancy": "vacancy"
+  },
+  "rings": {
+    "hello": "hello",
+    "ring1": "ring1",
+    "ring2": "ring2",
+    "ring3": "ring3",
+    "ring4": "ring4",
+    "ring5": "ring5",
+    "ring6": "ring6",
+    "ring7": "ring7",
+    "ring8": "ring8"
+  }
+}

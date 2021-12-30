@@ -1,7 +1,5 @@
 <template>
-  <div class="about">
-    NordSteel OÜ põhitegevuseks on armatuurrauast detailide ja valmiskarkasside tootmine
-nii paneelitehastele, kui ka ehitusobjektidele.
+  <div class="about">{{ $t('views.about') }}
   </div>
 </template>
 

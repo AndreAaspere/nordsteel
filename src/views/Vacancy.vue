@@ -2,7 +2,7 @@
   <div class="location flex">
     <div class="w-1/3">
       <div>
-        Vabad töökohad
+        {{$t('views.vacancy')}}
       </div>
     </div>
     <div class="w-1/3">
