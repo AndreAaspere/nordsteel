@@ -16,8 +16,6 @@
       "vat": "VAT nr.",
       "accounting": "Raamatupidamine:"
     },
-    "location": "location",
-    "certificates": "certificates",
     "team": {
       "productionmanager": "Tootmisjuht",
       "develpomentmanager": "Arendusjuht",

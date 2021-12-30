@@ -9,6 +9,17 @@
           <svg v-on:click="emitValue()" class="menuicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
           </svg>
+          <!-- lang switcher -->
+          <div>
+              <button
+                  v-on:click="dynamicActivate('est')">
+                  Est
+              </button>
+              <button
+                  v-on:click="dynamicActivate('en')">
+                  Eng
+              </button>
+          </div>
         </div>
       </div>
       <div class="bg-gray-200 h-3/6 flex flex-col-reverse sm:flex-row">
@@ -41,8 +52,8 @@
         <div class="w-full sm:w-2/3 relative">
           <!-- ring message -->
           <div class="message absolute z-10 text-white w-full flex flex-col">
-            <div class="message-header">{{ messageHeader }}</div>
-            <div>{{ messageText }}</div>
+            <div class="message-header">{{ msgHeader }}</div>
+            <div>{{ msgText }}</div>
           </div>
           <Map class="absolute z-20 h-full w-full map" v-if="this.$route.name === 'Location' && showMenu"/>
           <iframe class="absolute z-20 h-full w-full"  v-if="this.$route.name === 'Certificates' && showMenu" src="/test.pdf" width="50%" height="100%"></iframe>
@@ -61,7 +72,6 @@
         ></div>
         <!-- view -->
         <div class="bg-gray-300 view">
-
           <!-- rings 2 -->
           <div v-if="!showMenu" class="flex flex-col h-full sm:flex-row w-full">
             <div class="bg-gray-500 w-full h-1/2 sm:w-3/5 flex flex-row">
@@ -96,71 +106,89 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import Ring1 from './Ring1.vue'
 import Map from './Map.vue'
 import { useI18n } from 'vue-i18n'
-
 
 export default {
   name: 'Canvas',
   components: { Ring1, Map },
   setup() {
-    const {t} = useI18n({})
-     console.log(t('someWord'))
+    const {t, locale} = useI18n({})
 
     const showMenu = ref(false)
     const displayCertificate = ref(false)
     displayCertificate.value = false
 
-    const messages = {
-      ring1Header: t('rings.ring1.header'),
-      ring1Text: t('rings.ring1.text'),
-      ring2Header: t('rings.ring2.header'),
-      ring2Text: t('rings.ring2.text'),
-      ring3Header: t('rings.ring3.header'),
-      ring3Text: t('rings.ring3.text'),
-      ring4Header: t('rings.ring4.header'),
-      ring4Text: t('rings.ring4.text'),
-      ring5Header: t('rings.ring5.header'),
-      ring5Text: t('rings.ring5.text'),
-      ring6Header: t('rings.ring6.header'),
-      ring6Text: t('rings.ring6.text'),
-      ring7Header: t('rings.ring7.header'),
-      ring7Text: t('rings.ring7.text'),
-      ring8Header: t('rings.ring8.header'),
-      ring8Text: t('rings.ring8.text'),
-      ring9Header: t('rings.ring9.header'),
-      ring9Text: t('rings.ring9.text'),
-      homeHeader: t('rings.home.header'),
-      homeText: t('rings.home.text'),
+    function getTranslatedMessages() {
+      const messageObj = {
+        ring1Header: t('rings.ring1.header'),
+        ring1Text: t('rings.ring1.text'),
+        ring2Header: t('rings.ring2.header'),
+        ring2Text: t('rings.ring2.text'),
+        ring3Header: t('rings.ring3.header'),
+        ring3Text: t('rings.ring3.text'),
+        ring4Header: t('rings.ring4.header'),
+        ring4Text: t('rings.ring4.text'),
+        ring5Header: t('rings.ring5.header'),
+        ring5Text: t('rings.ring5.text'),
+        ring6Header: t('rings.ring6.header'),
+        ring6Text: t('rings.ring6.text'),
+        ring7Header: t('rings.ring7.header'),
+        ring7Text: t('rings.ring7.text'),
+        ring8Header: t('rings.ring8.header'),
+        ring8Text: t('rings.ring8.text'),
+        ring9Header: t('rings.ring9.header'),
+        ring9Text: t('rings.ring9.text'),
+        homeHeader: t('rings.home.header'),
+        homeText: t('rings.home.text'),
+      }
+      return messageObj
     }
 
-    const messageHeader = ref(messages.homeHeader)
-    const messageText = ref(messages.homeText)
+    let defaultTranslations = getTranslatedMessages()
+    let messages = ref(defaultTranslations)
+
+    function dynamicActivate(lang) {
+      locale.value = lang
+      const translatedMessages = getTranslatedMessages()
+      messages.value = translatedMessages
+      msgHeader.value = translatedMessages.homeHeader
+      msgText.value = translatedMessages.homeText
+    }
+
+    const msgHeader = ref(defaultTranslations.homeHeader)
+    const msgText = ref(defaultTranslations.homeText)
 
     function mouseover(event) {
       const key = event.srcElement.id
-      messageHeader.value = messages[key+'Header']
-      messageText.value = messages[key+'Text']
+      const rawMessages = {...messages.value};
+
+      msgHeader.value = rawMessages[key+'Header']
+      msgText.value = rawMessages[key+'Text']
     }
 
     function mouseleave() {
-      messageHeader.value = messages.homeHeader
-      messageText.value = messages.homeText
+      const rawMessages = {...messages.value};
+
+      msgHeader.value = rawMessages.homeHeader
+      msgText.value = rawMessages.homeText
     }
 
     function emitValue() {
       showMenu.value = !showMenu.value
     }
+
     return {
       showMenu,
       emitValue,
       displayCertificate,
       mouseover,
       mouseleave,
-      messageHeader,
-      messageText,
+      dynamicActivate,
+      msgHeader,
+      msgText
     }
 }
 }
