@@ -50,9 +50,6 @@
             :src="require('@/assets/postmark.svg')"
             class="postmark relative"
           >
-          <div v-if="this.$route.name === 'Certificates'">pdf
-            <pdf src="https://www.africau.edu/images/default/sample.pdf"></pdf>
-          </div>
         </div>
       </div>
       <div class="h-2/6">
