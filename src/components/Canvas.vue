@@ -1,10 +1,10 @@
 <template>
-  <div class="flex justify-center bg-gray-50 h-full canvas-parent">
+  <div class="flex justify-center h-full canvas-parent">
     <div class="canvas">
-      <div class="h-30vw sm:h-1/6 flex flex-col sm:flex-row">
+      <div class="h-30vw sm:h-15% flex flex-col sm:flex-row">
         <div class="h-2/3 sm:w-1/2 sm:h-full flex flex-col">
           <img alt="logo" class="w-1/2 pt-4% pl-4%" :src="require('@/assets/logo.svg')">
-          <img alt="landscape" class="w-140vh pt-6vh hidden sm:block absolute" :src="require('@/assets/landscape.svg')">
+          <img alt="landscape" class="w-140vh pt-4vh hidden sm:block absolute" :src="require('@/assets/landscape.svg')">
           <img alt="landscapeMobile" class="w-full sm:w-full mt-8% absolute sm:hidden" :src="require('@/assets/landscapeMobile.svg')">
         </div>
         <div class="h-1/3 sm:w-1/2 sm:h-full z-10">
@@ -12,33 +12,21 @@
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
           </svg>
         </div>
-        <!-- <div class="bg-blue-200 w-full h-1/2 sm:h-1/2 sm:h-full sm:w-1/3 sm:pt-3% sm:pl-3%"> -->
-          <!-- <img alt="logo" class="h-1/3 sm:w-full mt-5% ml-5% z-10" :src="require('@/assets/logo.svg')"> -->
-          <!-- <img alt="logo" class="z-30 " :src="require('@/assets/maastik.svg')"> -->
-        <!-- </div> -->
-        <!-- <div class="bg-blue-400 sm:w-2/3 h-1/2 sm:h-1/2  w-full flex justify-end"> -->
-          <!-- <svg v-on:click="emitValue()" class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
-          </svg> -->
-          <!-- lang switcher -->
-            <!-- <button class="p-[2%]" v-on:click="dynamicActivate('est')">Est</button>
-            <button class="p-[2%]" v-on:click="dynamicActivate('en')">Eng</button> -->
-        <!-- </div> -->
       </div>
-      <div class="bg-gray-200 sm:h-3/6 flex flex-col-reverse sm:flex-row">
-        <div class="bg-gray-400 flex w-full sm:w-1/3">
+      <div class="sm:h-55% flex flex-col-reverse sm:flex-row">
+        <div class="flex w-full sm:w-1/3">
           <!-- menu -->
           <!-- rings 1 -->
           <div v-if="!showMenu" class="w-full rings-section-1 flex flex-row">
-            <div class="w-1/2">
+            <div class="sm:w-1/2">
               <!-- ring 1 -->
-              <Ring1 id="ring1" class="ring1" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave"/>
+              <Ring2 id="ring1" class="ring1 w-80% sm:w-0% sm:mt-70% ml-10% sm:ml-10%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave"/>
             </div>
-            <div class="w-1/2 h-full flex flex-row sm:flex-col">
+            <div class="sm:w-1/2 h-full flex flex-row sm:flex-col">
               <!-- ring 2 -->
-              <div><Ring1 id="ring2" class="ring2" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              <div><Ring2 id="ring2" class="ring2 w-70% sm:w-90% ml-20% sm:ml-0 sm:mt-40%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
               <!-- ring 3 -->
-              <div><Ring1 id="ring3" class="ring3" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              <div><Ring2 id="ring3" class="ring3 w-60% sm:w-55% sm:mt-10% ml-20% sm:ml-40%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
             </div>
           </div>
           <div v-if="showMenu" id="nav" class="menu flex flex-col">
@@ -60,67 +48,62 @@
           </div>
           <Map class="absolute z-20 h-full w-full map" v-if="this.$route.name === 'Location' && showMenu"/>
           <iframe class="absolute z-20 h-full w-full"  v-if="this.$route.name === 'Certificates' && showMenu" src="/test.pdf" width="50%" height="100%"></iframe>
-          <img
+          <img v-if="showPostcard"
             alt="postmark"
             :src="require('@/assets/postmark.svg')"
             class="postmark relative"
           >
+          <img v-if="!showPostcard"
+            alt="postmark"
+            :src="require('@/assets/postmarkEmpty.svg')"
+            class="postmark relative"
+          >
         </div>
       </div>
-      <div class="sm:h-2/6">
+      <div class="sm:h-30%">
         <!-- separator -->
         <div
-          class="hidden sm:block bg-gray-500"
+          class="hidden sm:block bg-green-500"
           v-bind:class="{ 'separator': showMenu, 'separator-hidden': !showMenu}"
         ></div>
         <!-- view -->
-        <div class="bg-gray-300 view">
+        <div class="view">
           <!-- rings 2 -->
           <div v-if="!showMenu" class="flex flex-col h-full sm:flex-row w-full">
-            <div class="bg-gray-500 w-full h-1/2 sm:w-3/5 flex flex-row">
-              <div class="ring4">
-                <div><Ring1 id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
-              </div>
-              <div class="ring5">
-                <div><Ring1 id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
-              </div>
-              <div class="ring6">
-                <div><Ring1 id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
-              </div>
+            <div class="w-full h-full sm:w-1/2 flex flex-row">
+              <Ring2 class="ring4 ml-5% w-25% sm:w-47% sm:mt-min30% " id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring5 w-40% sm:w-30% sm:ml-min4%" id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring6 w-25% sm:w-20% sm:ml-3%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
-            <div class="bg-gray-400 w-full h-1/2 sm:w-2/5 flex flex-row">
-              <div class="ring7">
-                <div><Ring1 id="ring7" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
-              </div>
-              <div class="ring8">
-                <div><Ring1 id="ring8" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
-              </div>
-              <div class="ring9 block sm:hidden">
-                <div><Ring1 id="ring9" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
-              </div>
+            <div class="w-full h-full sm:w-1/2 flex flex-row">
+              <Ring2 class="ring7 w-30% ml-5% sm:ml-3%" id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring8 w-20% ml-5% sm:ml-3% sm:w-22%" id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring9 w-30% ml-5% sm:ml-3%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
           </div>
           <router-view v-if="showMenu"/>
         </div>
-        <div class="bg-gray-500 footer"></div>
+        <div class="bg-green-900 footer"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 import Ring1 from './Ring1.vue'
+import Ring2 from './Ring2.vue'
 import Map from './Map.vue'
 import { useI18n } from 'vue-i18n'
 
 export default {
   name: 'Canvas',
-  components: { Ring1, Map },
+  components: { Ring2, Map },
   setup() {
     const {t, locale} = useI18n({})
 
     const showMenu = ref(false)
+    const showPostcard = ref(true)
     const displayCertificate = ref(false)
     displayCertificate.value = false
 
@@ -168,6 +151,7 @@ export default {
       const key = event.srcElement.id
       const rawMessages = {...messages.value};
 
+      showPostcard.value = false
       msgHeader.value = rawMessages[key+'Header']
       msgText.value = rawMessages[key+'Text']
     }
@@ -175,6 +159,7 @@ export default {
     function mouseleave() {
       const rawMessages = {...messages.value};
 
+      showPostcard.value = true
       msgHeader.value = rawMessages.homeHeader
       msgText.value = rawMessages.homeText
     }
@@ -191,7 +176,8 @@ export default {
       mouseleave,
       dynamicActivate,
       msgHeader,
-      msgText
+      msgText,
+      showPostcard
     }
 }
 }
@@ -204,9 +190,6 @@ export default {
 .canvas {
   width: 140vh;
 }
-.canvas-resize {
-
-}
 .postmark {
   @apply h-full;
 }
@@ -214,8 +197,9 @@ export default {
   padding: 5% 
 }
 .message {
-  padding-top: 3%;
-  padding-left: 3%;
+  padding-top: 5%;
+  padding-left: 5%;
+  padding-right: 8%;
   font-size: 2.4vh;
   text-shadow: 1px 1px #583003;
 }
@@ -243,49 +227,36 @@ export default {
 }
 .menu {
   padding: 15%;
+  padding-top: 35%;
   font-size: 2.4vh;
   font-weight: bold;
 }
 #nav a.router-link-exact-active {
   color: #e97e04;
 }
-.ring {
-  /* @apply ring-offset-0 cursor-pointer; */
-}
 .ring1 {
-  margin-top: 40%;
-  width: 90%;
+  transform: rotate(-40deg);
 }
 .ring2 {
-  width: 100%;
 }
 .ring3 {
-  margin-top: 10%;
-  margin-left: 30%;
-  width: 70%;
+  transform: rotate(10deg);
 }
 .ring4 {
-  margin-top: -20%;
-  width: 46%;
 }
 .ring5 {
-  width: 27%;
+  transform: rotate(10deg);
 }
 .ring6 {
-  margin-top: 4%;
-  margin-left: 4%;
-  width: 20%;
+  transform: rotate(50deg);
 }
 .ring7 {
-  width: 40%;
+  transform: rotate(10deg);
 }
 .ring8 {
-  margin-top: 5%;
-  margin-left: 4%;
-  width: 30%;
+  transform: rotate(30deg);
 }
 .ring9 {
-  margin-top: 2.3%;
-  width: 13%;
+  transform: rotate(10deg);
 }
 </style>
