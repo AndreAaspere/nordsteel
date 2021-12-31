@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import VueGoogleMaps from '@fawmi/vue-google-maps'
-// import i18n from './i18n'
 import { createI18n } from 'vue-i18n'
 
 
@@ -23,7 +22,6 @@ console.log(navigator.language)
 
 const i18n = createI18n({
   // locale: navigator.language, // set locale
-  // legacy: false, // you must set `false`, to use Composition API
   locale: 'est', // set locale
   fallbackLocale: 'en', // set fallback locale
   messages: loadLocaleMessages(), // set locale messages

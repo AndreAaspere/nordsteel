@@ -1,28 +1,31 @@
 <template>
-  <div class="flex justify-center bg-gray-50 canvas-parent">
+  <div class="flex justify-center bg-gray-50 h-full canvas-parent">
     <div class="canvas">
-      <div class="h-1/6 flex flex-col sm:flex-row">
-        <div class="w-full h-1/2 sm:h-full sm:w-1/2 bg-gray-100">
-          <img alt="logo" class="logo z-10 h-1/2" :src="require('@/assets/logo.svg')">
+      <div class="h-30vw sm:h-1/6 flex flex-col sm:flex-row">
+        <div class="h-2/3 sm:w-1/2 sm:h-full flex flex-col">
+          <img alt="logo" class="w-1/2 pt-4% pl-4%" :src="require('@/assets/logo.svg')">
+          <img alt="landscape" class="w-140vh pt-6vh hidden sm:block absolute" :src="require('@/assets/landscape.svg')">
+          <img alt="landscapeMobile" class="w-full sm:w-full mt-8% absolute sm:hidden" :src="require('@/assets/landscapeMobile.svg')">
         </div>
-        <div class="w-full h-1/2 sm:h-full sm:w-1/2 bg-gray-300 flex justify-end">
-          <svg v-on:click="emitValue()" class="menuicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <div class="h-1/3 sm:w-1/2 sm:h-full z-10">
+          <svg v-on:click="emitValue()" class="h-full sm:h-1/2 p-2% mr-10% text-gray-900 cursor-pointer hover:text-gray-600 float-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
           </svg>
-          <!-- lang switcher -->
-          <div>
-              <button
-                  v-on:click="dynamicActivate('est')">
-                  Est
-              </button>
-              <button
-                  v-on:click="dynamicActivate('en')">
-                  Eng
-              </button>
-          </div>
         </div>
+        <!-- <div class="bg-blue-200 w-full h-1/2 sm:h-1/2 sm:h-full sm:w-1/3 sm:pt-3% sm:pl-3%"> -->
+          <!-- <img alt="logo" class="h-1/3 sm:w-full mt-5% ml-5% z-10" :src="require('@/assets/logo.svg')"> -->
+          <!-- <img alt="logo" class="z-30 " :src="require('@/assets/maastik.svg')"> -->
+        <!-- </div> -->
+        <!-- <div class="bg-blue-400 sm:w-2/3 h-1/2 sm:h-1/2  w-full flex justify-end"> -->
+          <!-- <svg v-on:click="emitValue()" class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+          </svg> -->
+          <!-- lang switcher -->
+            <!-- <button class="p-[2%]" v-on:click="dynamicActivate('est')">Est</button>
+            <button class="p-[2%]" v-on:click="dynamicActivate('en')">Eng</button> -->
+        <!-- </div> -->
       </div>
-      <div class="bg-gray-200 h-3/6 flex flex-col-reverse sm:flex-row">
+      <div class="bg-gray-200 sm:h-3/6 flex flex-col-reverse sm:flex-row">
         <div class="bg-gray-400 flex w-full sm:w-1/3">
           <!-- menu -->
           <!-- rings 1 -->
@@ -64,7 +67,7 @@
           >
         </div>
       </div>
-      <div class="h-2/6">
+      <div class="sm:h-2/6">
         <!-- separator -->
         <div
           class="hidden sm:block bg-gray-500"
@@ -196,7 +199,6 @@ export default {
 
 <style scoped>
 .canvas-parent {
-  height: 100%;
   font-family: Verdana, sans-serif;
 }
 .canvas {
@@ -233,13 +235,11 @@ export default {
   height: 20%;
 }
 .logo {
-  margin-top: 3%;
+  padding-top: 3%;
+  padding-left: 3%;
 }
 .menuicon {
-  margin-top: 4%;
-  margin-right: 5%;
-  height: 40%;
-  @apply text-gray-700 cursor-pointer z-40 hover:text-gray-500;
+  @apply text-gray-800 cursor-pointer z-40 hover:text-gray-500;
 }
 .menu {
   padding: 15%;

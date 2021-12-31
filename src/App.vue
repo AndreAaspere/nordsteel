@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:h-screen ">
+  <div class="sm:h-screen">
     <Canvas/>
   </div>
 </template>
