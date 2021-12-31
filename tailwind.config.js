@@ -4,6 +4,10 @@ module.exports = {
   // mode: 'jit',
   theme: {
     extend: {
+      colors: {
+        'ns-green': '#8cc63f',
+        'ns-blue': '#243c5a',
+      },
       padding: {
         '1%': '1%',
         '2%': '2%',
@@ -27,6 +31,7 @@ module.exports = {
         '70%': '70%',
       },
       height: {
+        '5%': '5%',
         '15%': '15%',
         '30%': '30%',
         '55%': '55%',

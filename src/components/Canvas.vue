@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center h-full canvas-parent">
+  <div class="flex justify-center h-full canvas-parent select-none no-tap-hilight">
     <div class="canvas">
       <div class="h-30vw sm:h-15% flex flex-col sm:flex-row">
         <div class="h-2/3 sm:w-1/2 sm:h-full flex flex-col">
@@ -63,8 +63,8 @@
       <div class="sm:h-30%">
         <!-- separator -->
         <div
-          class="hidden sm:block bg-green-500"
-          v-bind:class="{ 'separator': showMenu, 'separator-hidden': !showMenu}"
+          class="hidden sm:block h-5%"
+          v-bind:class="{ 'bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue': showMenu, 'bg-white': !showMenu}"
         ></div>
         <!-- view -->
         <div class="view">
@@ -83,7 +83,7 @@
           </div>
           <router-view v-if="showMenu"/>
         </div>
-        <div class="bg-green-900 footer"></div>
+        <div class="bg-gradient-to-r from-ns-green to-ns-blue h-1/5"></div>
       </div>
     </div>
   </div>
@@ -203,20 +203,8 @@ export default {
   font-size: 2.4vh;
   text-shadow: 1px 1px #583003;
 }
-.separator {
-  height: 5%;
-  @apply bg-gray-900;
-}
-.separator-hidden {
-  height: 5%;
-  @apply bg-white;
-}
 .view {
   height: 75%;
-
-}
-.footer {
-  height: 20%;
 }
 .logo {
   padding-top: 3%;
@@ -233,6 +221,9 @@ export default {
 }
 #nav a.router-link-exact-active {
   color: #e97e04;
+}
+.no-tap-hilight {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .ring1 {
   transform: rotate(-40deg);
