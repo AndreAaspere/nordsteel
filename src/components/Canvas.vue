@@ -42,9 +42,9 @@
         <!-- postmark -->
         <div class="w-full sm:w-2/3 relative">
           <!-- ring message -->
-          <div class="message absolute z-10 text-white w-full flex flex-col">
-            <div class="message-header">{{ msgHeader }}</div>
-            <div>{{ msgText }}</div>
+          <div class="message absolute z-10 w-full flex flex-col">
+            <div v-bind:class="{ 'message-hello-header': showPostcard, 'message-header': !showPostcard}">{{ msgHeader }}</div>
+            <div v-bind:class="{ 'message-hello-text': showPostcard, 'message-text': !showPostcard}">{{ msgText }}</div>
           </div>
           <Map class="absolute z-20 h-full w-full map" v-if="this.$route.name === 'Location' && showMenu"/>
           <iframe class="absolute z-20 h-full w-full"  v-if="this.$route.name === 'Certificates' && showMenu" src="/test.pdf" width="50%" height="100%"></iframe>
@@ -198,10 +198,29 @@ export default {
 }
 .message {
   padding-top: 5%;
-  padding-left: 5%;
-  padding-right: 8%;
-  font-size: 2.4vh;
-  text-shadow: 1px 1px #583003;
+  padding-left: 8%;
+  padding-right: 17%;
+  font-size: 2.1vh;
+  font-weight: bold;
+}
+.message-hello-header {
+  padding-left: 20%;
+  padding-bottom: 2%;
+  color: white;
+}
+.message-hello-text {
+  padding-right: 40%;
+  color: white;
+}
+.message-header {
+  text-align: center;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  font-size: 3vh;
+  color: rgb(34, 34, 34);
+}
+.message-text {
+  color: rgb(34, 34, 34);
 }
 .view {
   height: 75%;
@@ -239,7 +258,7 @@ export default {
   transform: rotate(10deg);
 }
 .ring6 {
-  transform: rotate(50deg);
+  /* transform: rotate(50deg); */
 }
 .ring7 {
   transform: rotate(10deg);
