@@ -3,7 +3,7 @@
     <div class="canvas">
       <div class="h-30vw sm:h-15% flex flex-col sm:flex-row">
         <div class="h-2/3 sm:w-1/2 sm:h-full flex flex-col">
-          <img alt="logo" class="w-1/2 pt-10% pl-4%" :src="require('@/assets/logo.svg')">
+          <img alt="logo" class="w-1/2 pt-4% sm:pt-10% pl-4%" :src="require('@/assets/logo.svg')">
           <img alt="landscape" class="w-140vh pt-4vh hidden sm:block absolute" :src="require('@/assets/landscape.svg')">
           <img alt="landscapeMobile" class="w-full sm:w-full mt-8% absolute sm:hidden" :src="require('@/assets/landscapeMobile.svg')">
         </div>
@@ -17,7 +17,7 @@
         <div class="flex w-full sm:w-1/3">
           <!-- menu -->
           <!-- rings 1 -->
-          <div v-if="displayRings" class="w-full rings-section-1 flex flex-row">
+          <div v-if="displayRings" class="w-full flex flex-row">
             <div class="sm:w-1/2">
               <!-- ring 1 -->
               <Ring2 id="ring1" class="ring1 w-80% sm:w-0% sm:mt-70% ml-10% sm:ml-10%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave"/>
@@ -29,7 +29,15 @@
               <div><Ring2 id="ring3" class="ring3 w-60% sm:w-55% sm:mt-10% ml-20% sm:ml-40%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
             </div>
           </div>
-          <div v-if="displayMenu" id="nav" class="menu flex flex-col">
+          <div
+            v-if="displayMenu"
+            v-bind:class="{
+              'menu': !mobileView,
+              'menu-mobile': mobileView
+            }"
+            id="nav"
+            class="flex flex-col"
+          >
             <router-link v-on:click="menuItemClicked()" class="nav-link" to="/about">{{$t('nav.about')}}</router-link>
             <router-link v-on:click="menuItemClicked()" class="nav-link" to="/contact">{{$t('nav.contact')}}</router-link>
             <router-link v-on:click="menuItemClicked()" class="nav-link" to="/location">{{$t('nav.location')}}</router-link>
@@ -313,6 +321,13 @@ export default {
   padding: 15%;
   padding-top: 35%;
   font-size: 2.4vh;
+  font-weight: bold;
+}
+.menu-mobile {
+  padding-left: 30%;
+  /* padding: 15%; */
+  /* padding-top: 35%; */
+  /* font-size: 2.4vh; */
   font-weight: bold;
 }
 #nav a.router-link-exact-active {
