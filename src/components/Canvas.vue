@@ -3,7 +3,7 @@
     <div class="canvas">
       <div class="h-30vw sm:h-15% flex flex-col sm:flex-row">
         <div class="h-2/3 sm:w-1/2 sm:h-full flex flex-col">
-          <img alt="logo" class="w-1/2 pt-4% pl-4%" :src="require('@/assets/logo.svg')">
+          <img alt="logo" class="w-1/2 pt-10% pl-4%" :src="require('@/assets/logo.svg')">
           <img alt="landscape" class="w-140vh pt-4vh hidden sm:block absolute" :src="require('@/assets/landscape.svg')">
           <img alt="landscapeMobile" class="w-full sm:w-full mt-8% absolute sm:hidden" :src="require('@/assets/landscapeMobile.svg')">
         </div>
@@ -305,10 +305,6 @@ export default {
 }
 .view {
   height: 75%;
-}
-.logo {
-  padding-top: 3%;
-  padding-left: 3%;
 }
 .menuicon {
   @apply text-gray-800 cursor-pointer z-40 hover:text-gray-500;
