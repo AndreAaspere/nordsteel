@@ -8,7 +8,7 @@
           <img alt="landscapeMobile" class="w-full sm:w-full mt-8% absolute sm:hidden" :src="require('@/assets/landscapeMobile.svg')">
         </div>
         <div class="h-1/3 sm:w-1/2 sm:h-full z-10">
-          <svg v-on:click="emitValue()" class="h-full sm:h-1/2 p-2% mr-10% text-gray-900 cursor-pointer hover:text-gray-600 float-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <svg v-on:click="openMenuClicked()" class="h-full sm:h-1/2 p-2% mr-10% text-gray-900 cursor-pointer hover:text-gray-600 float-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
           </svg>
         </div>
@@ -17,7 +17,7 @@
         <div class="flex w-full sm:w-1/3">
           <!-- menu -->
           <!-- rings 1 -->
-          <div v-if="!showMenu" class="w-full rings-section-1 flex flex-row">
+          <div v-if="displayRings" class="w-full rings-section-1 flex flex-row">
             <div class="sm:w-1/2">
               <!-- ring 1 -->
               <Ring2 id="ring1" class="ring1 w-80% sm:w-0% sm:mt-70% ml-10% sm:ml-10%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave"/>
@@ -29,14 +29,14 @@
               <div><Ring2 id="ring3" class="ring3 w-60% sm:w-55% sm:mt-10% ml-20% sm:ml-40%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
             </div>
           </div>
-          <div v-if="showMenu" id="nav" class="menu flex flex-col">
-            <router-link class="nav-link" to="/about">{{$t('nav.about')}}</router-link>
-            <router-link class="nav-link" to="/contact">{{$t('nav.contact')}}</router-link>
-            <router-link class="nav-link" to="/location">{{$t('nav.location')}}</router-link>
-            <router-link class="nav-link" to="/certificates">{{$t('nav.certificates')}}</router-link>
-            <router-link class="nav-link" to="/team">{{$t('nav.team')}}</router-link>
-            <router-link class="nav-link" to="/vacancy">{{$t('nav.vacancy')}}</router-link>
-            <router-link v-on:click="emitValue()" class="nav-link" to="/">>></router-link>
+          <div v-if="displayMenu" id="nav" class="menu flex flex-col">
+            <router-link v-on:click="menuItemClicked()" class="nav-link" to="/about">{{$t('nav.about')}}</router-link>
+            <router-link v-on:click="menuItemClicked()" class="nav-link" to="/contact">{{$t('nav.contact')}}</router-link>
+            <router-link v-on:click="menuItemClicked()" class="nav-link" to="/location">{{$t('nav.location')}}</router-link>
+            <router-link v-on:click="menuItemClicked()" class="nav-link" to="/certificates">{{$t('nav.certificates')}}</router-link>
+            <router-link v-on:click="menuItemClicked()" class="nav-link" to="/team">{{$t('nav.team')}}</router-link>
+            <router-link v-on:click="menuItemClicked()" class="nav-link" to="/vacancy">{{$t('nav.vacancy')}}</router-link>
+            <router-link v-on:click="openMenuClicked()" class="nav-link" to="/">>></router-link>
           </div>
         </div>
         <!-- postmark -->
@@ -46,8 +46,8 @@
             <div v-bind:class="{ 'message-hello-header': showPostcard, 'message-header': !showPostcard}">{{ msgHeader }}</div>
             <div v-bind:class="{ 'message-hello-text': showPostcard, 'message-text': !showPostcard}">{{ msgText }}</div>
           </div>
-          <Map class="absolute z-20 h-full w-full map" v-if="this.$route.name === 'Location' && showMenu"/>
-          <iframe class="absolute z-20 h-full w-full"  v-if="this.$route.name === 'Certificates' && showMenu" src="/test.pdf" width="50%" height="100%"></iframe>
+          <Map class="absolute z-20 h-full w-full map" v-if="this.$route.name === 'Location' && displayMenu"/>
+          <iframe class="absolute z-20 h-full w-full"  v-if="this.$route.name === 'Certificates' && displayMenu" src="/test.pdf" width="50%" height="100%"></iframe>
           <img v-if="showPostcard"
             alt="postmark"
             :src="require('@/assets/postmark.svg')"
@@ -64,12 +64,12 @@
         <!-- separator -->
         <div
           class="hidden sm:block h-5%"
-          v-bind:class="{ 'bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue': showMenu, 'bg-white': !showMenu}"
+          v-bind:class="{ 'bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue': displayMenu, 'bg-white': !displayMenu}"
         ></div>
         <!-- view -->
         <div class="view">
           <!-- rings 2 -->
-          <div v-if="!showMenu" class="flex flex-col h-full sm:flex-row w-full">
+          <div v-if="displayRings" class="flex flex-col h-full sm:flex-row w-full">
             <div class="w-full h-full sm:w-1/2 flex flex-row">
               <Ring2 class="ring4 ml-5% w-25% sm:w-47% sm:mt-min30% " id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
               <Ring2 class="ring5 w-40% sm:w-30% sm:ml-min4%" id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
@@ -81,7 +81,8 @@
               <Ring2 class="ring9 w-30% ml-5% sm:ml-3%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
           </div>
-          <router-view v-if="showMenu"/>
+          <div v-if="displayViews && mobileView" class="cursor-ponter" v-on:click="openMenuClicked()">>></div>
+          <router-view v-if="displayViews"/>
         </div>
         <div class="bg-gradient-to-r from-ns-green to-ns-blue h-1/5"></div>
       </div>
@@ -90,8 +91,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import Ring1 from './Ring1.vue'
+import { ref, onMounted } from 'vue';
 import Ring2 from './Ring2.vue'
 import Map from './Map.vue'
 import { useI18n } from 'vue-i18n'
@@ -102,10 +102,27 @@ export default {
   setup() {
     const {t, locale} = useI18n({})
 
-    const showMenu = ref(false)
+    const displayRings = ref(true)
+    const displayMenu = ref(false)
+    const displayViews = ref(false)
+    const mobileView = ref(false)
+
+    onMounted(() => {
+      mobileView.value = window.innerWidth < 640;
+
+      window.addEventListener('resize', () => {
+        mobileView.value = window.innerWidth < 640;
+        if (mobileView.value) {
+          displayRings.value = true
+          displayMenu.value = false
+          displayViews.value = false
+        }
+      })
+    })
+  
     const showPostcard = ref(true)
     const displayCertificate = ref(false)
-    displayCertificate.value = false
+    // displayCertificate.value = false
 
     function getTranslatedMessages() {
       const messageObj = {
@@ -164,22 +181,52 @@ export default {
       msgText.value = rawMessages.homeText
     }
 
-    function emitValue() {
-      showMenu.value = !showMenu.value
+    function openMenuClicked() {
+      if (mobileView.value) {
+        if (displayViews.value) {
+          displayMenu.value = true
+          displayViews.value = false
+        } else {
+          if(displayRings.value) {
+            displayRings.value = false
+            displayMenu.value = true
+          } else {
+            displayRings.value = true
+            displayMenu.value = false
+          }
+        }
+      }
+
+      if (!mobileView.value) {
+        displayRings.value = !displayRings.value
+        displayMenu.value = !displayMenu.value
+        displayViews.value = !displayViews.value
+      }
+    }
+
+    function menuItemClicked() {
+      if (mobileView.value) {
+        displayMenu.value = false
+        displayViews.value = true
+      }
     }
 
     return {
-      showMenu,
-      emitValue,
+      displayRings,
+      displayMenu,
+      displayViews,
+      openMenuClicked,
       displayCertificate,
       mouseover,
       mouseleave,
       dynamicActivate,
       msgHeader,
       msgText,
-      showPostcard
+      showPostcard,
+      menuItemClicked,
+      mobileView,
     }
-}
+  }
 }
 </script>
 
