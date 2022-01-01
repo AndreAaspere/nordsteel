@@ -42,9 +42,19 @@
         <!-- postmark -->
         <div class="w-full sm:w-2/3 relative">
           <!-- ring message -->
-          <div class="message absolute z-10 w-full flex flex-col">
-            <div v-bind:class="{ 'message-hello-header': showPostcard, 'message-header': !showPostcard}">{{ msgHeader }}</div>
-            <div v-bind:class="{ 'message-hello-text': showPostcard, 'message-text': !showPostcard}">{{ msgText }}</div>
+          <div class="msg absolute z-10 w-full flex flex-col">
+            <div v-bind:class="{
+              'msg-header-hello': showPostcard && !mobileView,
+              'msg-header-hello-mobile': showPostcard && mobileView,
+              'msg-header': !showPostcard && !mobileView,
+              'msg-header-mobile': !showPostcard && mobileView,
+              }">{{ msgHeader }}</div>
+            <div v-bind:class="{
+              'msg-text-hello': showPostcard && !mobileView,
+              'msg-text-hello-mobile': showPostcard && mobileView,
+              'msg-text': !showPostcard && !mobileView,
+              'msg-text-mobile': !showPostcard && mobileView,
+              }">{{ msgText }}</div>
           </div>
           <Map class="absolute z-20 h-full w-full map" v-if="this.$route.name === 'Location' && displayMenu"/>
           <iframe class="absolute z-20 h-full w-full"  v-if="this.$route.name === 'Certificates' && displayMenu" src="/test.pdf" width="50%" height="100%"></iframe>
@@ -122,7 +132,6 @@ export default {
   
     const showPostcard = ref(true)
     const displayCertificate = ref(false)
-    // displayCertificate.value = false
 
     function getTranslatedMessages() {
       const messageObj = {
@@ -243,31 +252,56 @@ export default {
 .map {
   padding: 5% 
 }
-.message {
+.msg-hello {
+
+}
+.msg {
   padding-top: 5%;
   padding-left: 8%;
-  padding-right: 17%;
-  font-size: 2.1vh;
   font-weight: bold;
+  color: rgb(34, 34, 34);
 }
-.message-hello-header {
+.msg-header-hello {
   padding-left: 20%;
   padding-bottom: 2%;
-  color: white;
 }
-.message-hello-text {
-  padding-right: 40%;
-  color: white;
-}
-.message-header {
+.msg-header {
   text-align: center;
   padding-top: 10%;
   padding-bottom: 5%;
   font-size: 3vh;
-  color: rgb(34, 34, 34);
+  padding-right: 17%;
+
 }
-.message-text {
-  color: rgb(34, 34, 34);
+.msg-header-hello-mobile {
+  font-size: 4vw;
+  padding-left: 25%;
+
+}
+.msg-header-mobile {
+  font-size: 4vw;
+  text-align: center;
+  padding-right: 6%;
+  padding-bottom: 3%;
+
+}
+.msg-text-hello {
+  padding-right: 40%;
+  font-size: 2.1vh;
+}
+.msg-text {
+  font-size: 2.1vh;
+  padding-right: 17%;
+
+}
+.msg-text-hello-mobile {
+  font-size: 2.5vw;
+  padding-right: 20%;
+
+}
+.msg-text-mobile {
+  font-size: 2.8vw;
+  padding-right: 6%;
 }
 .view {
   height: 75%;
