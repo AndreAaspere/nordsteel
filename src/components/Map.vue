@@ -27,7 +27,7 @@ export default {
     const center = {lat: 51.093048, lng: 6.9}
     const markers = [
         {
-          id: 'marker',
+          id: 'AIzaSyAYwToKntElDbaMQC24my3udJRl-TBD5cI',
           position: coordinates
         }
       ]

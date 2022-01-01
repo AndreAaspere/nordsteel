@@ -70,11 +70,20 @@
             v-if="this.$route.name === 'Location' &&  (displayMenu && !mobileView || mobileView && displayViews)"
             v-bind:class="{ 'map': !mobileView}"
           />
-          <iframe
+          <!-- <iframe
             class="absolute z-50 h-full w-full"
             v-if="this.$route.name === 'Certificates' &&  (displayMenu && !mobileView || mobileView && displayViews)"
             src="/test.pdf" width="100%" height="100%"
+          ></iframe> -->
+          <iframe
+            class="absolute z-50 h-full w-full"
+            v-if="this.$route.name === 'Certificates' &&  (displayMenu && !mobileView || mobileView && displayViews)"
+            :src=fullPdfUrl
+            frameborder="0"
+            height="100%"
+            width="100%"
           ></iframe>
+
           <img v-if="showPostcard"
             alt="postmark"
             :src="require('@/assets/postmarkLandscape.svg')"
@@ -87,10 +96,10 @@
           >
         </div>
       </div>
-      <div class="sm:h-30%">
+      <div class="sm:h-32%">
         <!-- separator -->
         <div
-          class="hidden sm:block h-5%"
+          class="hidden sm:block h-3%"
           v-bind:class="{ 'bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue': displayMenu, 'bg-white': !displayMenu}"
         ></div>
         <!-- view -->
@@ -103,9 +112,9 @@
               <Ring2 class="ring6 w-25% sm:w-20% sm:ml-3%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
             <div class="w-full h-full sm:w-1/2 flex flex-row">
-              <Ring2 class="ring7 w-30% ml-5% sm:ml-3%" id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
-              <Ring2 class="ring8 w-20% ml-5% sm:ml-3% sm:w-22%" id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
-              <Ring2 class="ring9 w-30% ml-5% sm:ml-3%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring7 w-30% ml-5% sm:ml-3%" id="ring7" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring8 w-20% ml-5% sm:ml-3% sm:w-22%" id="ring8" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring9 w-30% ml-5% sm:ml-3%" id="ring9" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
           </div>
           <div v-if="displayViews && mobileView" class="cursor-pointer pl-80%" v-on:click="openMenuClicked()">>></div>
@@ -134,6 +143,9 @@ export default {
     const displayViews = ref(false)
     const mobileView = ref(false)
 
+    const pdfUrl = 'https://andreaaspere.github.io/nordsteel/test.pdf'
+    const fullPdfUrl = `https://docs.google.com/viewer?url=${pdfUrl}&embedded=true`
+
     onMounted(() => {
       mobileView.value = window.innerWidth < 640;
 
@@ -148,7 +160,6 @@ export default {
     })
   
     const showPostcard = ref(true)
-    const displayCertificate = ref(false)
 
     function getTranslatedMessages() {
       const messageObj = {
@@ -242,7 +253,6 @@ export default {
       displayMenu,
       displayViews,
       openMenuClicked,
-      displayCertificate,
       mouseover,
       mouseleave,
       dynamicActivate,
@@ -251,6 +261,7 @@ export default {
       showPostcard,
       menuItemClicked,
       mobileView,
+      fullPdfUrl
     }
   }
 }
@@ -262,6 +273,7 @@ export default {
 }
 .canvas {
   width: 140vh;
+  color: rgb(34, 34, 34);
 }
 .map {
   padding-right: 11%;
@@ -281,7 +293,7 @@ export default {
 }
 .msg-header {
   text-align: center;
-  padding-top: 10%;
+  padding-top: 5%;
   padding-bottom: 5%;
   font-size: 3vh;
   padding-right: 17%;
@@ -310,7 +322,7 @@ export default {
 }
 .msg-text-hello-mobile {
   font-size: 2.5vw;
-  padding-right: 20%;
+  padding-right: 40%;
 
 }
 .msg-text-mobile {
@@ -331,7 +343,7 @@ export default {
 .menu {
   padding: 15%;
   padding-top: 35%;
-  font-size: 2.4vh;
+  font-size: 2.2vh;
   font-weight: bold;
 }
 .menu-mobile {
