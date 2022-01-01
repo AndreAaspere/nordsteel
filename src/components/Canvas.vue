@@ -29,6 +29,7 @@
               <div><Ring2 id="ring3" class="ring3 w-60% sm:w-55% sm:mt-10% ml-20% sm:ml-40%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
             </div>
           </div>
+          <div v-if="!displayRings && mobileView" class="absolute w-full h-2 mt-2 bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue"></div>
           <div
             v-if="displayMenu"
             v-bind:class="{
@@ -50,7 +51,7 @@
         <!-- postmark -->
         <div class="w-full sm:w-2/3 relative">
           <!-- ring message -->
-          <div class="msg absolute z-10 w-full flex flex-col">
+          <div v-if="displayRings" class="msg absolute z-10 w-full flex flex-col">
             <div v-bind:class="{
               'msg-header-hello': showPostcard && !mobileView,
               'msg-header-hello-mobile': showPostcard && mobileView,
@@ -64,8 +65,16 @@
               'msg-text-mobile': !showPostcard && mobileView,
               }">{{ msgText }}</div>
           </div>
-          <Map class="absolute z-20 h-full w-full map" v-if="this.$route.name === 'Location' && displayMenu"/>
-          <iframe class="absolute z-20 h-full w-full"  v-if="this.$route.name === 'Certificates' && displayMenu" src="/test.pdf" width="50%" height="100%"></iframe>
+          <Map
+            class="absolute z-50 h-full w-full p-5%"
+            v-if="this.$route.name === 'Location' &&  (displayMenu && !mobileView || mobileView && displayViews)"
+            v-bind:class="{ 'map': !mobileView}"
+          />
+          <iframe
+            class="absolute z-50 h-full w-full"
+            v-if="this.$route.name === 'Certificates' &&  (displayMenu && !mobileView || mobileView && displayViews)"
+            src="/test.pdf" width="100%" height="100%"
+          ></iframe>
           <img v-if="showPostcard"
             alt="postmark"
             :src="require('@/assets/postmarkLandscape.svg')"
@@ -85,7 +94,7 @@
           v-bind:class="{ 'bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue': displayMenu, 'bg-white': !displayMenu}"
         ></div>
         <!-- view -->
-        <div class="view">
+        <div class="view sm:pt-0" v-bind:class="{'view-mobile': displayViews && mobileView}">
           <!-- rings 2 -->
           <div v-if="displayRings" class="flex flex-col h-full sm:flex-row w-full">
             <div class="w-full h-full sm:w-1/2 flex flex-row">
@@ -99,7 +108,7 @@
               <Ring2 class="ring9 w-30% ml-5% sm:ml-3%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
           </div>
-          <div v-if="displayViews && mobileView" class="cursor-ponter" v-on:click="openMenuClicked()">>></div>
+          <div v-if="displayViews && mobileView" class="cursor-pointer pl-80%" v-on:click="openMenuClicked()">>></div>
           <router-view v-if="displayViews"/>
         </div>
         <div class="bg-gradient-to-r from-ns-green to-ns-blue h-1/5"></div>
@@ -254,11 +263,8 @@ export default {
 .canvas {
   width: 140vh;
 }
-/* .postmark {
-  @apply h-full;
-} */
 .map {
-  padding: 5% 
+  padding-right: 11%;
 }
 .msg-hello {
 
@@ -314,6 +320,11 @@ export default {
 .view {
   height: 75%;
 }
+.view-mobile {
+  padding-top: 8%;
+  text-align: center;
+
+}
 .menuicon {
   @apply text-gray-800 cursor-pointer z-40 hover:text-gray-500;
 }
@@ -325,9 +336,7 @@ export default {
 }
 .menu-mobile {
   padding-left: 30%;
-  /* padding: 15%; */
-  /* padding-top: 35%; */
-  /* font-size: 2.4vh; */
+  padding-top: 10%;
   font-weight: bold;
 }
 #nav a.router-link-exact-active {

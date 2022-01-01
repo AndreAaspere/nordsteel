@@ -1,8 +1,8 @@
 <template>
-  <div class="location flex">
-    <div class="w-1/3">
+  <div class="location flex flex-col sm:flex-row">
+    <div class="sm:w-1/3">
     </div>
-    <div class="w-1/3 flex flex-col">
+    <div class="sm:w-1/3 flex flex-col">
       <div class="font-bold">
         NordSteel OÜ
       </div>
@@ -16,7 +16,7 @@
         {{ $t('views.contact.country') }}
       </div>
     </div>
-    <div class="w-1/3 flex flex-col">
+    <div class="sm:w-1/3 flex flex-col pt-5% sm:pt-0">
       <a href = "mailto: info@nordsteel.ee">info@nordsteel.ee</a>
       <a href="tel:+372 56232676">+372 56232676</a>
       <div>

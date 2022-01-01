@@ -1,6 +1,6 @@
 <template>
-  <div class="location flex">
-    <div class="w-1/3">
+  <div class="location flex flex-col">
+    <div class="sm:w-1/3">
       <div>
         {{$t('views.vacancy')}}
       </div>

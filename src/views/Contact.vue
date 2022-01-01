@@ -1,6 +1,6 @@
 <template>
-  <div class="contact flex">
-    <div class="w-1/3">
+  <div class="contact flex flex-col sm:flex-row">
+    <div class="sm:w-1/3">
       <div class="font-bold">
         NordSteel OÜ
       </div>
@@ -14,7 +14,7 @@
         {{ $t('views.contact.country') }}
       </div>
     </div>
-    <div class="w-1/3">
+    <div class="sm:w-1/3 pt-5% sm:pt-0">
       <div>
         {{ $t('views.contact.reg') }}
         14943863
@@ -24,7 +24,7 @@
         EE102245666
       </div>
     </div>
-    <div class="w-1/3 flex flex-col">
+    <div class="sm:w-1/3 pt-5% sm:pt-0 flex flex-col">
       <a href = "mailto: info@nordsteel.ee">info@nordsteel.ee</a>
       <a href="tel:+372 56232676">+372 56232676</a>
       <div>
