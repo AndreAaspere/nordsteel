@@ -50,13 +50,13 @@
           <iframe class="absolute z-20 h-full w-full"  v-if="this.$route.name === 'Certificates' && displayMenu" src="/test.pdf" width="50%" height="100%"></iframe>
           <img v-if="showPostcard"
             alt="postmark"
-            :src="require('@/assets/postmark.svg')"
-            class="postmark relative"
+            :src="require('@/assets/postmarkLandscape.svg')"
+            class="z-40 absolute h-full"
           >
-          <img v-if="!showPostcard"
+          <img
             alt="postmark"
             :src="require('@/assets/postmarkEmpty.svg')"
-            class="postmark relative"
+            class="postmark relative h-full"
           >
         </div>
       </div>
@@ -237,9 +237,9 @@ export default {
 .canvas {
   width: 140vh;
 }
-.postmark {
+/* .postmark {
   @apply h-full;
-}
+} */
 .map {
   padding: 5% 
 }
