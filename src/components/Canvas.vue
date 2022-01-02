@@ -26,7 +26,7 @@
               <!-- ring 2 -->
               <div><Ring2 id="ring2" class="ring2 w-70% sm:w-90% ml-20% sm:ml-0 sm:mt-40%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
               <!-- ring 3 -->
-              <div><Ring2 id="ring3" class="ring3 w-60% sm:w-55% sm:mt-10% ml-20% sm:ml-40%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              <div><Ring2 id="ring3" class="ring3 w-60% sm:w-55% sm:mt-10% ml-20% sm:ml-35%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
             </div>
           </div>
           <div v-if="!displayRings && mobileView" class="absolute w-full h-2 mt-2 bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue"></div>
@@ -70,11 +70,6 @@
             v-if="this.$route.name === 'Location' &&  (displayMenu && !mobileView || mobileView && displayViews)"
             v-bind:class="{ 'map': !mobileView}"
           />
-          <!-- <iframe
-            class="absolute z-50 h-full w-full"
-            v-if="this.$route.name === 'Certificates' &&  (displayMenu && !mobileView || mobileView && displayViews)"
-            src="/test.pdf" width="100%" height="100%"
-          ></iframe> -->
           <iframe
             class="absolute z-50 h-full w-full"
             v-if="this.$route.name === 'Certificates' &&  (displayMenu && !mobileView || mobileView && displayViews)"
@@ -289,7 +284,7 @@ export default {
 }
 .msg-header-hello {
   padding-left: 20%;
-  font-size: 3vh;
+  font-size: 2.5vh;
 }
 .msg-header {
   text-align: center;
@@ -311,8 +306,10 @@ export default {
 
 }
 .msg-text-hello {
-  padding-right: 40%;
-  font-size: 2.1vh;
+  padding-right: 37%;
+  margin-left: -2%;
+  font-size: 1.9vh;
+  line-height: 115%;
 }
 .msg-text {
   font-size: 2.1vh;
@@ -338,14 +335,15 @@ export default {
   text-align: center;
 
 }
-.menuicon {
-  @apply text-gray-800 cursor-pointer z-40 hover:text-gray-500;
-}
 .menu {
   padding: 15%;
   padding-top: 35%;
-  font-size: 2.2vh;
+  font-size: 1.7vh;
   font-weight: bold;
+}
+.nav-link {
+  padding-bottom: 2%;
+  color: rgb(54, 54, 54);;
 }
 .menu-mobile {
   padding-left: 30%;
