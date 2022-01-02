@@ -91,7 +91,7 @@
           >
         </div>
       </div>
-      <div class="sm:h-32%">
+      <div class="sm:h-30%">
         <!-- separator -->
         <div
           class="hidden sm:block h-3%"
@@ -115,7 +115,7 @@
           <div v-if="displayViews && mobileView" class="cursor-pointer pl-80%" v-on:click="openMenuClicked()">>></div>
           <router-view v-if="displayViews"/>
         </div>
-        <div class="bg-gradient-to-r from-ns-green to-ns-blue h-1/5"></div>
+        <div class="bg-gradient-to-r from-ns-green to-ns-blue h-22%"></div>
       </div>
     </div>
   </div>
