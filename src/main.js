@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import VueGoogleMaps from '@fawmi/vue-google-maps'
 import { createI18n } from 'vue-i18n'
-
+import VueGtag from 'vue-gtag';
 
 function loadLocaleMessages() {
   const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
@@ -34,5 +34,8 @@ createApp(App)
     load: {
         key: 'AIzaSyAYwToKntElDbaMQC24my3udJRl-TBD5cI',
     },
+  })
+  .use(VueGtag, {
+    config: { id: "G-8574SXNVV2" }
   })
   .mount('#app')

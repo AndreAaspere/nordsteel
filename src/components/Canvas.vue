@@ -3,12 +3,12 @@
     <div class="canvas">
       <div class="h-30vw sm:h-15% flex flex-col sm:flex-row">
         <div class="h-2/3 sm:w-1/2 sm:h-full flex flex-col">
-          <img alt="logo" class="w-1/2 pt-4% sm:pt-10% pl-4%" :src="require('@/assets/logo.svg')">
+          <img alt="logo" class="w-1/2 pt-4% sm:pt-8% pl-4%" :src="require('@/assets/logo.svg')">
           <img alt="landscape" class="w-140vh pt-4vh hidden sm:block absolute" :src="require('@/assets/landscape.svg')">
           <img alt="landscapeMobile" class="w-full sm:w-full mt-8% absolute sm:hidden" :src="require('@/assets/landscapeMobile.svg')">
         </div>
         <div class="h-1/3 sm:w-1/2 sm:h-full z-10">
-          <svg v-on:click="openMenuClicked()" class="h-full sm:h-1/2 p-2% mr-10% text-gray-900 cursor-pointer hover:text-gray-600 float-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <svg v-on:click="openMenuClicked()" class="h-full max-h-full sm:max-h-1/2 sm:h-1/2 p-2% mr-10% text-gray-900 cursor-pointer hover:text-gray-600 float-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
           </svg>
         </div>
@@ -107,7 +107,7 @@
           <!-- rings 2 -->
           <div v-if="displayRings" class="flex flex-col h-full sm:flex-row w-full">
             <div class="w-full h-full sm:w-1/2 flex flex-row">
-              <Ring2 class="ring4 ml-5% w-25% sm:w-47% sm:mt-min30% " id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring4 ml-8% w-25% sm:w-43% sm:mt-min30% " id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
               <Ring2 class="ring5 w-40% sm:w-30% sm:ml-min4%" id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
               <Ring2 class="ring6 w-25% sm:w-20% sm:ml-3%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
@@ -289,7 +289,7 @@ export default {
 }
 .msg-header-hello {
   padding-left: 20%;
-  padding-bottom: 2%;
+  font-size: 3vh;
 }
 .msg-header {
   text-align: center;
@@ -302,7 +302,6 @@ export default {
 .msg-header-hello-mobile {
   font-size: 4vw;
   padding-left: 25%;
-
 }
 .msg-header-mobile {
   font-size: 4vw;
@@ -318,7 +317,8 @@ export default {
 .msg-text {
   font-size: 2.1vh;
   padding-right: 17%;
-
+  text-align: justify;
+  /* word-break: break-all; */
 }
 .msg-text-hello-mobile {
   font-size: 2.5vw;
@@ -328,6 +328,7 @@ export default {
 .msg-text-mobile {
   font-size: 2.8vw;
   padding-right: 6%;
+  text-align: justify;
 }
 .view {
   height: 75%;
@@ -357,29 +358,44 @@ export default {
 .no-tap-hilight {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+.postmark {
+  filter: drop-shadow(0px 0px 8px rgb(0 0 0 / 0.8));
+}
 .ring1 {
   transform: rotate(-40deg);
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
 .ring2 {
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+
 }
 .ring3 {
   transform: rotate(10deg);
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+
 }
 .ring4 {
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+
 }
 .ring5 {
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
   transform: rotate(10deg);
 }
 .ring6 {
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
   /* transform: rotate(50deg); */
 }
 .ring7 {
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
   transform: rotate(10deg);
 }
 .ring8 {
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
   transform: rotate(30deg);
 }
 .ring9 {
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
   transform: rotate(10deg);
 }
 </style>
