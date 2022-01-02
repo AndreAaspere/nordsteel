@@ -94,7 +94,7 @@
       <div class="sm:h-30%">
         <!-- separator -->
         <div
-          class="hidden sm:block h-3%"
+          class="hidden sm:block footer h-3%"
           v-bind:class="{ 'bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue': displayMenu, 'bg-white': !displayMenu}"
         ></div>
         <!-- view -->
@@ -115,7 +115,12 @@
           <div v-if="displayViews && mobileView" class="cursor-pointer pl-80%" v-on:click="openMenuClicked()">>></div>
           <router-view v-if="displayViews"/>
         </div>
-        <div class="bg-gradient-to-r from-ns-green to-ns-blue h-22%"></div>
+        <div
+          class="bg-gradient-to-r from-ns-green to-ns-blue h-22%"
+          v-bind:class="{
+              'footer': !mobileView,
+              }"
+        ></div>
       </div>
     </div>
   </div>
@@ -263,6 +268,10 @@ export default {
 </script>
 
 <style scoped>
+.footer {
+  margin-left: calc(0px - (50vw - 70vh));
+  margin-right: calc(0px - (50vw - 70vh));
+}
 .canvas-parent {
   font-family: Verdana, sans-serif;
 }
