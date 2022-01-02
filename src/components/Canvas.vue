@@ -101,10 +101,10 @@
         <div class="view sm:pt-0" v-bind:class="{'view-mobile': displayViews && mobileView}">
           <!-- rings 2 -->
           <div v-if="displayRings" class="flex flex-col h-full sm:flex-row w-full">
-            <div class="w-full h-full sm:w-1/2 flex flex-row">
-              <Ring2 class="ring4 ml-8% w-25% sm:w-43% sm:mt-min30% " id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
-              <Ring2 class="ring5 w-40% sm:w-30% sm:ml-min4%" id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
-              <Ring2 class="ring6 w-25% sm:w-20% sm:ml-3%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+            <div class="w-full sm:w-1/2 flex flex-row">
+              <Ring2 class="ring4 ml-5% mt-0 w-25% sm:h-30vh sm:w-30vh sm:mt-min18vh sm:ml-3vh relative sm:absolute" id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring5 sm:ml-40% w-38%" id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring6 h-80% w-25% mt-4% sm:ml-min2%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
             <div class="w-full h-full sm:w-1/2 flex flex-row">
               <Ring2 class="ring7 w-30% ml-5% sm:ml-3%" id="ring7" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
@@ -279,14 +279,16 @@ export default {
 .msg {
   padding-top: 5%;
   padding-left: 8%;
-  font-weight: bold;
+  font-weight: normal;
   color: rgb(34, 34, 34);
 }
 .msg-header-hello {
+  font-weight: bold;
   padding-left: 20%;
   font-size: 2.5vh;
 }
 .msg-header {
+  font-weight: bold;
   text-align: center;
   padding-top: 5%;
   padding-bottom: 5%;
@@ -306,7 +308,7 @@ export default {
 
 }
 .msg-text-hello {
-  padding-right: 37%;
+  padding-right: 40%;
   margin-left: -2%;
   font-size: 1.9vh;
   line-height: 115%;
@@ -374,7 +376,6 @@ export default {
 }
 .ring4 {
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-
 }
 .ring5 {
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
@@ -382,7 +383,7 @@ export default {
 }
 .ring6 {
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-  /* transform: rotate(50deg); */
+  transform: rotate(50deg);
 }
 .ring7 {
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));

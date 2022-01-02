@@ -16,14 +16,6 @@
         {{ $t('views.contact.country') }}
       </div>
     </div>
-    <div class="sm:w-1/3 flex flex-col pt-5% sm:pt-0">
-      <a href = "mailto: info@nordsteel.ee">info@nordsteel.ee</a>
-      <a href="tel:+372 56232676">+372 56232676</a>
-      <div>
-        {{ $t('views.contact.accounting') }}
-      </div>
-      <a href = "mailto: arved@nordsteel.ee">arved@nordsteel.ee</a>
-    </div>
   </div>
 </template>
 
