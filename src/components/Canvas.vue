@@ -51,7 +51,13 @@
         <!-- postmark -->
         <div class="w-full sm:w-2/3 relative">
           <!-- ring message -->
-          <div v-if="displayRings" class="msg absolute z-10 w-full flex flex-col">
+          <div
+            v-if="displayRings"
+            class="msg absolute z-10 w-full flex flex-col"
+            v-bind:class="{
+              'text-resize': !mobileView && resizeView,
+            }"
+          >
             <div v-bind:class="{
               'msg-header-hello': showPostcard && !mobileView,
               'msg-header-hello-mobile': showPostcard && mobileView,
@@ -88,21 +94,34 @@
             alt="postmark"
             :src="require('@/assets/postmarkEmpty.svg')"
             class="postmark relative h-full"
+
           >
         </div>
       </div>
       <div class="sm:h-30%">
         <!-- separator -->
         <div
-          class="hidden sm:block footer h-3%"
-          v-bind:class="{ 'bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue': displayMenu, 'bg-white': !displayMenu}"
+          class="hidden sm:block h-3%"
+          v-bind:class="{
+            'bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue': displayMenu,
+            'bg-white': !displayMenu,
+            'stretch': !mobileView && !resizeView,
+            }"
         ></div>
         <!-- view -->
         <div class="view sm:pt-0" v-bind:class="{'view-mobile': displayViews && mobileView}">
           <!-- rings 2 -->
           <div v-if="displayRings" class="flex flex-col h-full sm:flex-row w-full">
             <div class="w-full sm:w-1/2 flex flex-row">
-              <Ring2 class="ring4 ml-5% mt-0 w-25% sm:h-30vh sm:w-30vh sm:mt-min18vh sm:ml-3vh relative sm:absolute" id="ring4" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2
+                id="ring4"
+                class="ring4 ml-5% mt-0 w-25% sm:h-30vh sm:w-30vh sm:mt-min18vh sm:ml-3vh relative sm:absolute"
+                v-bind:class="{
+                  'ring4-resize': !mobileView && resizeView,
+                }"
+                v-on:mouseover="mouseover"
+                v-on:mouseleave="mouseleave" 
+              />
               <Ring2 class="ring5 sm:ml-40% w-38%" id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
               <Ring2 class="ring6 h-80% w-25% mt-4% sm:ml-min2%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
@@ -118,7 +137,7 @@
         <div
           class="bg-gradient-to-r from-ns-green to-ns-blue h-22%"
           v-bind:class="{
-              'footer': !mobileView,
+              'stretch': !mobileView && !resizeView,
               }"
         ></div>
       </div>
@@ -142,15 +161,22 @@ export default {
     const displayMenu = ref(false)
     const displayViews = ref(false)
     const mobileView = ref(false)
+    const resizeView = ref(false)
 
-    const pdfUrl = 'https://andreaaspere.github.io/nordsteel/test.pdf'
+    const pdfUrl = 'https://www.nordsteel.ee/11994-01fi.pdf'
     const fullPdfUrl = `https://docs.google.com/viewer?url=${pdfUrl}&embedded=true`
+
+    const initialRatio = window.innerWidth/window.innerHeight;
+    resizeView.value = initialRatio < 1.4;
 
     onMounted(() => {
       mobileView.value = window.innerWidth < 640;
 
       window.addEventListener('resize', () => {
         mobileView.value = window.innerWidth < 640;
+        const changerRatio = window.innerWidth/window.innerHeight;
+        resizeView.value = changerRatio < 1.4;
+
         if (mobileView.value) {
           displayRings.value = true
           displayMenu.value = false
@@ -261,14 +287,15 @@ export default {
       showPostcard,
       menuItemClicked,
       mobileView,
-      fullPdfUrl
+      fullPdfUrl,
+      resizeView
     }
   }
 }
 </script>
 
 <style scoped>
-.footer {
+.stretch {
   margin-left: calc(0px - (50vw - 70vh));
   margin-right: calc(0px - (50vw - 70vh));
 }
@@ -308,6 +335,7 @@ export default {
 .msg-header-hello-mobile {
   font-size: 4vw;
   padding-left: 25%;
+  font-weight: bold;
 }
 .msg-header-mobile {
   font-size: 4vw;
@@ -370,6 +398,11 @@ export default {
 .postmark {
   filter: drop-shadow(0px 0px 8px rgb(0 0 0 / 0.8));
 }
+.text-resize {
+  margin-top: 10vw;
+  z-index: 60;
+  font-size: 1.7vw;
+}
 .ring1 {
   transform: rotate(-40deg);
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
@@ -382,6 +415,9 @@ export default {
   transform: rotate(10deg);
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 
+}
+.ring4-resize {
+  width: 20vw;
 }
 .ring4 {
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));

@@ -1,5 +1,6 @@
 module.exports = {
-  publicPath: '/nordsteel/',
+  // publicPath: '/nordsteel/',
+  publicPath: '/',
 
   pluginOptions: {
     i18n: {
