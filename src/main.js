@@ -32,7 +32,8 @@ createApp(App)
   .use(router)
   .use(VueGoogleMaps, {
     load: {
-        key: 'AIzaSyAYwToKntElDbaMQC24my3udJRl-TBD5cI',
+        key: '',
+        // key: 'AIzaSyAYwToKntElDbaMQC24my3udJRl-TBD5cI',
     },
   })
   .use(VueGtag, {
