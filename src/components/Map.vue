@@ -23,7 +23,7 @@
 export default {
   name: 'Map',
   setup() {
-    const coordinates = {lat: 58.10681649396083, lng: 25.542487664000050}
+    const coordinates = {lat: 58.10656649396083, lng: 25.54186264000050}
     const center = {lat: 51.093048, lng: 6.9}
     const markers = [
         {
