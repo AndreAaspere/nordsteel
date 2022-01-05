@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "about": "OM FÖRETAGET",
+    "contact": "KONTAKT",
+    "location": "PLACERING",
+    "certificates": "CERTIFIKAT",
+    "team": "TEAM",
+    "vacancy": "LEDIGA TJÄNSTER"
+  },
+  "views": {
+    "about": "NordSteel OÜ:s huvudsakliga verksamhet är produktion av komponenter och element i armeringsjärn, både åt producenter av betongelement samt till byggplatser.",
+    "contact": {
+      "street": "Ettevõtluse 6, Karksi-Nuia, 69103,",
+      "county": "Viljandimaa",
+      "country": "Estland",
+      "reg": "Organisationsnummer",
+      "vat": "Momsnummer",
+      "accounting": "Bokföring:"
+    },
+    "team": {
+      "productionmanager": "Produktionschef",
+      "develpomentmanager": "Teknisk och administrativ chef",
+      "projectmanager": "Projektledare"
+    },
+    "vacancy": ""
+  },
+  "rings": {
+    "home": {
+      "header": "Hej!",
+      "text": "När du flyttar på cursorn hittar du NordSteel OÜ:s sortiment av tjänster och produkter."
+    },
+    "ring1": {
+      "header": "Bockade komponenter",
+      "text": "Vi bockar även detaljer i armeringsjärn i dimensionerna d-8 till d-32. Vid bockning använder vi endast B500B armeringsjärn. Vid specialbeställning kan man även beställa komponenter i dimensionerna B500A och B500C. Arbetet utföres på helautomatiska nya italienska MEP-arbetsbänkar."
+    },
+    "ring2": {
+      "header": "Poster, reglar, balkar och utjämningar.",
+      "text": "Vi tillverkar armeringar till poster både med och utan konsoler. Vi producerar färdiga armeringar både till betongelementfabriker och till byggen. Vid behov förser vi dem med monteringsdetaljer, lyftok och balkskor. De färdiga armeringar kan placeras i formerna utan ytterligare extraarbeten vilket ökar farten i produktionen av betongelementen. Just nu kan vi som standardlösning tillverka armeringar på upp till 15 m. Som specialbeställning upp till 24 m."
+    },
+    "ring3": {
+      "header": "Särskilda nät",
+      "text": "Vi tillverkar särskilda nät av material i måtten d-8 till d-20. Vi kan även tillverka armeringsnät på 3,5 m * 12 m. Näten kan ha både nivåer och hål. Priset bestäms av slutvikten. De största kunderna i dag är tillverkare av betongelement till vilka vi tillverkar nät enligt volym och mått. För alla nät gör vi monteringsteckningar åt kunden och samtliga nät tillverkas med obligatorisk ytbehandling. Kunden måste kunna montera näten i den givna följden och kunna binda ihop dem."
+    },
+    "ring4": {
+      "header": "Golv- vägg- och trappelement.",
+      "text": "Vi tillverkar armeringar i armeringsjärn i olika utformningar och styrkenivåer som inte kräver extraarbeten eller finish vid användning. Vi kan montera de flesta monteringsdetaljer på komponenterna, vid behov även lyftöglar och väggskor. I standardutförande kan vi producera komponenter som är 3,5 m breda och 12 m långa."
+    },
+    "ring5": {
+      "header": "Raka armeringsjärn",
+      "text": "Hos oss kan du beställa måttskurna raka armeringsjärn. Du betalar enligt faktisk vikt. Du betalar inte för överblivet material eller rester."
+    },
+    "ring6": {
+      "header": "Armeringsjärn till byggprojekt",
+      "text": "Vi tillverkar bockade, raka och färdiga armeringar enligt specifikation som täcker hela behovet i ditt byggprojekt. Vi lämnar inga rester på byggplatsen och kostnaden är fast under hela byggperioden."
+    },
+    "ring7": {
+      "header": "Armeringstjänster",
+      "text": "När det är mycket att göra på bygget är det ofta behov av att få armeringsarbeten utfört snabbt och bra. För att det kan bli av har vi skapat en avdelning i vårt företag som sysslar med armering utanför vår produktionshall Vår fabrik tar fram praktiska ritningar och enligt dessa görs hela arbetet. Det säkrar att snabb armering utföres på byggplatsen. Ett mellantak på 500 m2 är vi t. ex. klara att armera färdigt inom 24 timmar. Kostnaden är kilobaserad och betalningen motsvarar den monterade armeringens totalvikt."
+    },
+    "ring8": {
+      "header": "Formar till pålning",
+      "text": "Vi tillverkar armerade former till pålning med en maxlängd på 18 m just nu. Som specialjobb har vi även tillverkat pålningsformer på 24 m."
+    },
+    "ring9": {
+      "header": "Lyftöglor",
+      "text": "Vi tillverkar även lyftöglor i olika former och dimensioner, både av svart metall S235 och S355 samt av rostfritt stål."
+    }
+  }
+}

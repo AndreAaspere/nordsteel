@@ -1,30 +1,72 @@
 {
-  "message": "this is the message",
   "nav": {
-    "about": "ABOUT",
-    "contact": "CONTACT",
+    "about": "ABOUT US",
+    "contact": "CONTACT US",
     "location": "LOCATION",
     "certificates": "CERTIFICATES",
     "team": "TEAM",
-    "vacancy": "VACANCY"
+    "vacancy": "VACANCIES"
   },
   "views": {
-    "about": "about",
-    "contact": "contact",
-    "location": "location",
-    "certificates": "certificates",
-    "team": "team",
-    "vacancy": "vacancy"
+    "about": "The main activity of NordSteel OÜ is the production of reinforcement steel parts and prefabricated structures for both panel factories and construction sites.",
+    "contact": {
+      "street": "Ettevõtluse 6, Karksi-Nuia, 69103,",
+      "county": "Mulgi Parish",
+      "country": "Estonia",
+      "reg": "Reg. no.",
+      "vat": "VAT no.",
+      "accounting": "Accounting:"
+    },
+    "team": {
+      "productionmanager": "Production Manager",
+      "develpomentmanager": "Technical and Administrative Manager",
+      "projectmanager": "Project manager",
+      "kuido": "Kuido Kasak",
+      "tarmo": "Tarmo Soots",
+      "johannes": "Johannes Kasak"
+    },
+    "vacancy": "Vacancies"
   },
   "rings": {
-    "hello": "hello",
-    "ring1": "ring1",
-    "ring2": "ring2",
-    "ring3": "ring3",
-    "ring4": "ring4",
-    "ring5": "ring5",
-    "ring6": "ring6",
-    "ring7": "ring7",
-    "ring8": "ring8"
+    "home": {
+      "header": "Hello!",
+      "text": "By moving the cursor over the rings you will find the NordSteel OÜ selection of services and products."
+    },
+    "ring1": {
+      "header": "Bent details",
+      "text": "We twist reinforcement details from d-8 to d-32. We only use the B500B rebar for twisting. Parts made of B500A and B500C material can also be ordered by special order. We are working with fully automatic new machines from Italian company MEP."
+    },
+    "ring2": {
+      "header": "Columns, latches, beams, and lintels.",
+      "text": "We manufacture column structures both with and without consoles. We produce ready-made reinforcements both for concrete product factories and for civil construction purposes. If necessary, we add structural details, lifting eyes and post shoes. Finished reinforcements can be placed in the molds without excessive additional work, which significantly speeds up the completion of concrete parts. Today, we can produce up to 15 m structures as a standard solution, and up to 24 m on a special order."
+    },
+    "ring3": {
+      "header": "Special nets",
+      "text": "We produce special nets from d-8 to d-20. We can produce reinforcement nets 3.5 m * 12 m. Nets can have both steps and openings. The price is determined only by the final weight. Today, the largest customers are the manufacturers of concrete floors, for whom we make nets according to the dimensions of the room. For all nets, we make installation drawings for the customer and all nets are manufactured with the appropriate overlays. The customer needs to install and interconnect the nets in a predetermined order."
+    },
+    "ring4": {
+      "header": "Floor, wall, and staircase elements.",
+      "text": "We make rebar structures of different shapes and degrees of difficulty, which do not require additional work or finishing when placed in the formwork. We can add most structural details to the details, also lifting eyes and wall shoes, if necessary. In a standard situation we can produce parts with a width of 3.5 m and a length of 12 m."
+    },
+    "ring5": {
+      "header": "Straight rebar",
+      "text": "We also sell cut to size rebars. You have to pay on a real weight basis. You do not have to pay for scraps."
+    },
+    "ring6": {
+      "header": "Rebar based on construction project",
+      "text": "We manufacture twisted, straight, or finished reinforcements according to the specification for the total volume of the project. This does not result in residues for the customer at the site and the total cost of the project is fixed for the entire construction period."
+    },
+    "ring7": {
+      "header": "Reinforcement services",
+      "text": "On construction sites with a busy schedule, it is often necessary to perform reinforcement work quickly. To enable this, we have set up a department in the company that deals with reinforcement works outside our production facilities. Construction drawings are prepared in our factory and all the necessary material is prepared accordingly. This ensures fast reinforcement work on the construction site. For example, we are ready to reinforce the entire 500 m 2 ceiling in 24 hours. The price of the service is based on kg and the cost is based on the total weight of the installed rebar."
+    },
+    "ring8": {
+      "header": "Rebar structures for piles",
+      "text": "We manufacture rebar structures for drill piles, the maximum length of which today is 18 m. We have also made 24 m pile structures by special order."
+    },
+    "ring9": {
+      "header": "Hoisting loops",
+      "text": "We manufacture hoisting loops of different shapes and diameters, both in ferrous metal S235, S355 and stainless steel."
+    }
   }
 }

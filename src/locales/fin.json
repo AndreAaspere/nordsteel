@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "about": "YRITYKSESTÄ",
+    "contact": "YHTEYSTIEDOT",
+    "location": "SIJAINTI",
+    "certificates": "SERTIFIKAATIT",
+    "team": "HENKILÖKUNTA",
+    "vacancy": "AVOIMET TYÖPAIKAT"
+  },
+  "views": {
+    "about": "NordSteel OÜ:n päätoimialana on raudoitusteräksestä valmistettujen osien ja valmiskehikkojen valmistaminen sekä paneelitehtaille että rakennuskohteisiin.",
+    "contact": {
+      "street": "Ettevõtluse 6, 69103 Karksi-Nuia,",
+      "county": "Viljandimaa, Mulgi vald, ",
+      "country": "Estonia",
+      "reg": "Rek. nro",
+      "vat": "ALV-nro",
+      "accounting": "Kirjanpito:"
+    },
+    "team": {
+      "productionmanager": "Tuotantopäällikkö",
+      "develpomentmanager": "Tekninen ja hallinnollinen johtaja",
+      "projectmanager": "Projektipäällikkö"
+    },
+    "vacancy": ""
+  },
+  "rings": {
+    "home": {
+      "header": "Hei!",
+      "text": "Kursoria liikuttaessasi löydät NordSteel OÜ:n palveluiden ja tuotteiden valikoiman."
+    },
+    "ring1": {
+      "header": "Taivutetut osat",
+      "text": "Taivutamme harjateräsosia välillä d-8 – d-32. Taivutukseen käytämme vain B500B-harjaterästä. Erikoistilauksesta mahdollisuus tilata myös B500A- ja B500C-materiaaleista valmistettuja osia. Suoritamme työt uusilla täysautomaattisilla italialaisilla MEP-työstökoneilla."
+    },
+    "ring2": {
+      "header": "Pylväät, salvat, palkit ja harkot.",
+      "text": "Valmistamme pylväsrunkoja konsoleilla ja ilman. Teemme valmiita raudoituksia sekä betonituotteiden tehtaille että siviilirakentamisen tarkoituksiin. Lisäämme tarvittaessa niihin kiinnityslevyt, nostolenkit ja lisätöitä, mikä nopeuttaa huomattavasti betonitöiden valmistumista. Tällä hetkellä voimme valmistaa standardiratkaisuna maks. 15 m:n runkoja, erikoistilauksena myös maks. 24 m."
+    },
+    "ring3": {
+      "header": "Erikoisverkot",
+      "text": "Valmistamme erikoisverkkoja materiaalista d-8 materiaaliin d-20. Voimme valmistaa 3,5 m * 12 m:n raudoitusverkkoja. Verkot voivat olla portaallisia ja myös aukollisia. Hinnan määrää loppupaino. Suurimpia tilaajiamme ovat betonilattioiden valmistajat, joille valmistamme verkkoja tilojen mittojen mukaisesti. Kaikkien verkkojen osalta teemme asiakkaalle asennuspiirustukset, ja kaikki verkot valmistetaan vaatimusten mukaisilla päällisillä. Asiakkaan tarvitsee vain asentaa verkot ennalta määrätyssä järjestyksessä ja sitoa ne toisiinsa."
+    },
+    "ring4": {
+      "header": "Lattia-, seinä- ja porraselementit.", 
+      "text": "Koostamme harjateräksestä muodoiltaan ja painoluokiltaan erilaisia runkoja, joiden kehikkoon asentamiseen ei tarvita lisätöitä tai viimeistelyä. Voimme lisätä tuotteeseen suurimman osan runko-osista ja tarvittaessa myös nostolenkit ja seinäkengät. Vakiotilanteessa voimme tuottaa osia, joiden leveys on 3,5 m ja pituus 12 m."
+    },
+    "ring5": {
+      "header": "Suora harjateräs",
+      "text": "Yrityksestämme voi tilata mittaan leikattua suoraa harjaterästä. Maksu tapahtuu lopullisen painon perusteella. Jäännöksistä ei tarvitse maksaa erikseen."
+    },
+    "ring6": {
+      "header": "Rakennusprojektiperusteinen harjateräs",
+      "text": "Valmistamme taivutettuja, suoria tai valmiita raudoituksia projektin kokonaismäärän erittelyjä vastaavasti. Tilaajan kohteelle ei synny tästä jäännöksiä, ja koko projektin hinta on vahvistettu koko rakennuskauden ajaksi."
+    },
+    "ring7": {
+      "header": "Raudoituspalvelu",
+      "text": "Tiiviin aikataulun rakennuskohteilla on usein tarve suorittaa raudoitustöitä nopeasti. Olemme perustaneet tätä tarkoitusta varten yritykseemme osaston, joka toimii raudoitustöiden parissa toimistorakennuksemme ulkopuolella. Tehtaassamme tehdään työpiirustukset, ja sen mukaan valmistetaan koko tarvittava materiaali. Tämä takaa nopean raudoituksen rakennuskohteella. Esimerkiksi 500 m²:n välikaton olemme valmiita raudoittamaan koko laajuudeltaan 24 tunnissa. Palvelun hinta on kiloperusteinen, ja hinta muodostuu asennetun raudoituksen kokonaispainon perusteella."
+    },
+    "ring8": {
+      "header": "Palkkirungot",
+      "text": "Valmistamme porauspalkkeja varten raudoitusrunkoja, joiden pituus on tällä hetkellä enintään 18 m. Olemme valmistaneet erikoistyönä myös 24 m:n palkkirunkoja."
+    },
+    "ring9": {
+      "header": "Nostolenkit",
+      "text": "Valmistamme muodoltaan ja halkaisijaltaan erilaisia nostolenkkejä mustasta metallista S235 ja S355 sekä ruostumattomasta teräksestä."
+    }
+  }
+}

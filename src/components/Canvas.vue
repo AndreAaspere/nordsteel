@@ -4,13 +4,26 @@
       <div class="h-30vw sm:h-15% flex flex-col sm:flex-row">
         <div class="h-2/3 sm:w-1/2 sm:h-full flex flex-col">
           <img alt="logo" class="w-1/2 pt-4% sm:pt-8% pl-4%" :src="require('@/assets/logo.svg')">
-          <img alt="landscape" class="w-140vh pt-4vh hidden sm:block absolute" :src="require('@/assets/landscape.svg')">
+          <img alt="landscape" class="w-140vh pt-4vh hidden sm:block absolute landscape" :src="require('@/assets/landscape.svg')">
           <img alt="landscapeMobile" class="w-full sm:w-full mt-8% absolute sm:hidden" :src="require('@/assets/landscapeMobile.svg')">
         </div>
         <div class="relative h-1/3 sm:w-1/2 sm:h-full z-10 flex justify-end">
-          <svg v-on:click="openMenuClicked()" class="h-full sm:h-1/2 p-2% mr-10% text-gray-900 cursor-pointer hover:text-gray-600 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <!-- <svg v-on:click="openMenuClicked()" class="h-full sm:h-1/2 p-2% text-gray-900 cursor-pointer hover:text-gray-600 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
-          </svg>
+          </svg> -->
+          <!-- langmenu -->
+          <div class="flex p-2 mt-2% h-1/3" v-bind:class="{ 'langmenu': !mobileView, 'langmenu-mobile': mobileView}">
+            <button class="">
+              <svg v-on:click="openMenuClicked()" class="hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+              </svg>
+            </button>
+            <button class="" :class="locale === 'est' ? 'lang-active' : ''" v-on:click="langMenuClicked('est')">Est</button>
+            <button :class="locale === 'eng' ? 'lang-active' : ''" v-on:click="langMenuClicked('eng')">Eng</button>
+            <button :class="locale === 'swe' ? 'lang-active' : ''" v-on:click="langMenuClicked('swe')">Swe</button>
+            <button :class="locale === 'rus' ? 'lang-active' : ''" v-on:click="langMenuClicked('rus')">Rus</button>
+            <button :class="locale === 'fin' ? 'lang-active' : ''" v-on:click="langMenuClicked('fin')">Fin</button>
+          </div>
         </div>
       </div>
       <div class="sm:h-55% flex flex-col-reverse sm:flex-row">
@@ -150,6 +163,10 @@ import { ref, onMounted } from 'vue';
 import Ring2 from './Ring2.vue'
 import Map from './Map.vue'
 import { useI18n } from 'vue-i18n'
+// import { useRouter, useRoute } from 'vue-router'
+// import {
+//    computed
+// } from 'vue'
 
 export default {
   name: 'Canvas',
@@ -162,15 +179,35 @@ export default {
     const displayViews = ref(false)
     const mobileView = ref(false)
     const resizeView = ref(false)
+    // const router = useRouter()
+    // const route = useRoute()
 
     const pdfUrl = 'https://www.nordsteel.ee/11994-01fi.pdf'
     const fullPdfUrl = `https://docs.google.com/viewer?url=${pdfUrl}&embedded=true`
 
     const initialRatio = window.innerWidth/window.innerHeight;
     resizeView.value = initialRatio < 1.4;
+  // const vm = getCurrentInstance()
+
+      // const path = computed(() => route.path)
+      // console.log(path)
+      // console.log(path.value)
+          // console.log(route.params.id);
+
 
     onMounted(() => {
       mobileView.value = window.innerWidth < 640;
+
+      // console.log(route.name)
+      // console.log(router)
+      // console.log(router.currentRoute)
+      // console.log(router.currentRoute.value.fullPath)
+      // const rawObject = {...router.currentRoute}
+      // console.log(rawObject)
+      // const path = computed(() => route.path)
+      // console.log(path)
+      // console.log(path.value)
+
 
       window.addEventListener('resize', () => {
         mobileView.value = window.innerWidth < 640;
@@ -216,7 +253,7 @@ export default {
     let defaultTranslations = getTranslatedMessages()
     let messages = ref(defaultTranslations)
 
-    function dynamicActivate(lang) {
+    function langMenuClicked(lang) {
       locale.value = lang
       const translatedMessages = getTranslatedMessages()
       messages.value = translatedMessages
@@ -281,20 +318,50 @@ export default {
       openMenuClicked,
       mouseover,
       mouseleave,
-      dynamicActivate,
+      langMenuClicked,
       msgHeader,
       msgText,
       showPostcard,
       menuItemClicked,
       mobileView,
       fullPdfUrl,
-      resizeView
+      resizeView,
+      locale
     }
   }
 }
 </script>
 
 <style scoped>
+.langmenu-mobile > button {
+  font-size: 3.6vw;
+  padding-right: 2vw;
+}
+.langmenu > button {
+  padding-right: 0.6vh;
+  font-size: 2.2vh;
+  color: rgb(34, 34, 34);
+}
+.langmenu .hamburger {
+  margin-top: -0.2vh;
+  margin-right: 2vh;
+  height: 4vh;
+}
+.langmenu-mobile .hamburger {
+  margin-top: -0.3vw;
+  margin-right: 2vw;
+  height: 6vw;
+}
+.langmenu > button:hover {
+  color: rgb(110, 110, 110);
+}
+.lang-active {
+  text-decoration: underline;
+}
+.landscape {
+  margin-left: calc(0px - (50vw - 70vh));
+  width: 100%;
+}
 .stretch {
   margin-left: calc(0px - (50vw - 70vh));
   margin-right: calc(0px - (50vw - 70vh));

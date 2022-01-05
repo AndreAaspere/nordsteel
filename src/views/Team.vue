@@ -2,7 +2,7 @@
   <div class="contact flex flex-col sm:flex-row">
     <div class="sm:w-1/3 flex flex-col pb-5% sm:pb-0">
       <div class="font-bold flex justify-center">
-        Kuido Kasak
+        {{$t('views.team.kuido')}}
       </div>
       <div class="flex justify-center">
         {{$t('views.team.productionmanager')}}
@@ -12,9 +12,9 @@
     </div>
     <div class="sm:w-1/3 flex flex-col pb-5% sm:pb-0">
       <div class="font-bold flex justify-center">
-        Tarmo Soots
+        {{$t('views.team.tarmo')}}
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center text-center">
         {{$t('views.team.develpomentmanager')}}
       </div>
       <a class="flex justify-center" href = "mailto: tarmo@nordsteel.ee">tarmo@nordsteel.ee</a>
@@ -22,7 +22,7 @@
     </div>
     <div class="sm:w-1/3 flex flex-col">
       <div class="font-bold flex justify-center">
-        Johannes Kasak
+        {{$t('views.team.johannes')}}
       </div>
       <div class="flex justify-center">
         {{$t('views.team.projectmanager')}}

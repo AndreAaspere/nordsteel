@@ -7,10 +7,10 @@
         NordSteel OÜ
       </div>
       <div>
-        Ettevõtluse 6, Karksi-Nuia, 69103
+        {{ $t('views.contact.street') }}
       </div>
       <div>
-        Viljandimaa, Mulgi vald
+        {{ $t('views.contact.county') }}
       </div>
       <div>
         {{ $t('views.contact.country') }}

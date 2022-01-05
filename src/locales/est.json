@@ -1,5 +1,4 @@
 {
-  "message": "this is the message",
   "nav": {
     "about": "ETTEVÕTTEST",
     "contact": "KONTAKT",
@@ -11,6 +10,8 @@
   "views": {
     "about": "NordSteel OÜ põhitegevuseks on armatuurrauast detailide ja valmiskarkasside tootmine nii paneelitehastele, kui ka ehitusobjektidele.",
     "contact": {
+      "street": "Ettevõtluse 6, Karksi-Nuia, 69103,",
+      "county": "Viljandimaa, Mulgi vald",
       "country": "Eesti",
       "reg": "Reg. nr.",
       "vat": "VAT nr.",
