@@ -163,7 +163,7 @@ import { ref, onMounted } from 'vue';
 import Ring2 from './Ring2.vue'
 import Map from './Map.vue'
 import { useI18n } from 'vue-i18n'
-// import { useRouter, useRoute } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 // import {
 //    computed
 // } from 'vue'
@@ -179,35 +179,25 @@ export default {
     const displayViews = ref(false)
     const mobileView = ref(false)
     const resizeView = ref(false)
-    // const router = useRouter()
-    // const route = useRoute()
+    const router = useRouter()
+    const route = useRoute()
 
     const pdfUrl = 'https://www.nordsteel.ee/11994-01fi.pdf'
     const fullPdfUrl = `https://docs.google.com/viewer?url=${pdfUrl}&embedded=true`
 
     const initialRatio = window.innerWidth/window.innerHeight;
     resizeView.value = initialRatio < 1.4;
-  // const vm = getCurrentInstance()
 
-      // const path = computed(() => route.path)
-      // console.log(path)
-      // console.log(path.value)
-          // console.log(route.params.id);
+    onMounted(async () => {
+      await router.isReady()
 
+      if (route.path !== '/') {
+        displayRings.value = false
+        displayMenu.value = true
+        displayViews.value = true
+      }
 
-    onMounted(() => {
       mobileView.value = window.innerWidth < 640;
-
-      // console.log(route.name)
-      // console.log(router)
-      // console.log(router.currentRoute)
-      // console.log(router.currentRoute.value.fullPath)
-      // const rawObject = {...router.currentRoute}
-      // console.log(rawObject)
-      // const path = computed(() => route.path)
-      // console.log(path)
-      // console.log(path.value)
-
 
       window.addEventListener('resize', () => {
         mobileView.value = window.innerWidth < 640;
@@ -361,6 +351,7 @@ export default {
 .landscape {
   margin-left: calc(0px - (50vw - 70vh));
   width: 100%;
+  z-index: -9998;
 }
 .stretch {
   margin-left: calc(0px - (50vw - 70vh));
