@@ -168,7 +168,7 @@
               'stretch': !mobileView && !resizeView,
               }"
         >
-          <div class="footer text-center">
+          <div class="footer">
             made by Mineralstones OÜ
           </div>
         </div>
@@ -534,5 +534,6 @@ export default {
   padding-right:10vh;
   font-size:2vh;
   color: #e97e04;
+  text-align: center;
 }
 </style>
