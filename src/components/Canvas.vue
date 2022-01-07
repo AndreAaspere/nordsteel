@@ -4,16 +4,20 @@
       <div class="h-30vw sm:h-15% flex flex-col sm:flex-row">
         <div class="h-2/3 sm:w-1/2 sm:h-full flex flex-col">
           <img alt="logo" class="w-1/2 pt-4% sm:pt-8% pl-4%" :src="require('@/assets/logo.svg')">
-          <img alt="landscape" class="w-140vh pt-4vh hidden sm:block absolute landscape" :src="require('@/assets/landscape.svg')">
+          <img
+            alt="landscape"
+            class="w-140vh pt-4vh hidden sm:block absolute"
+            v-bind:class="{
+              'landscape': !mobileView && !resizeView,
+            }"
+            :src="require('@/assets/landscape.svg')"
+          >
           <img alt="landscapeMobile" class="w-full sm:w-full mt-8% absolute sm:hidden" :src="require('@/assets/landscapeMobile.svg')">
         </div>
         <div class="relative h-1/3 sm:w-1/2 sm:h-full z-10 flex justify-end">
-          <!-- <svg v-on:click="openMenuClicked()" class="h-full sm:h-1/2 p-2% text-gray-900 cursor-pointer hover:text-gray-600 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
-          </svg> -->
-          <!-- langmenu -->
+           <!-- langmenu -->
           <div class="flex p-2 mt-2% h-1/3" v-bind:class="{ 'langmenu': !mobileView, 'langmenu-mobile': mobileView}">
-            <button class="">
+            <button>
               <svg v-on:click="openMenuClicked()" class="hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
               </svg>
@@ -74,14 +78,18 @@
             <div v-bind:class="{
               'msg-header-hello': showPostcard && !mobileView,
               'msg-header-hello-mobile': showPostcard && mobileView,
+              'msg-header-hello-resize': showPostcard && resizeView && !mobileView,
               'msg-header': !showPostcard && !mobileView,
               'msg-header-mobile': !showPostcard && mobileView,
+              'msg-header-resize': !showPostcard && resizeView && !mobileView,
               }">{{ msgHeader }}</div>
             <div v-bind:class="{
               'msg-text-hello': showPostcard && !mobileView,
               'msg-text-hello-mobile': showPostcard && mobileView,
+              'msg-text-hello-resize': showPostcard && resizeView && !mobileView,
               'msg-text': !showPostcard && !mobileView,
               'msg-text-mobile': !showPostcard && mobileView,
+              'msg-text-resize': !showPostcard && resizeView && !mobileView,
               }">{{ msgText }}</div>
           </div>
           <Map
@@ -101,13 +109,20 @@
           <img v-if="showPostcard"
             alt="postmark"
             :src="require('@/assets/postmarkLandscape.svg')"
-            class="z-40 absolute h-full"
+            class="z-40 absolute"
+            v-bind:class="{
+              'h-full': !resizeView || resizeView && mobileView,
+              'w-full': resizeView && !mobileView,
+              }"
           >
           <img
             alt="postmark"
             :src="require('@/assets/postmarkEmpty.svg')"
-            class="postmark relative h-full"
-
+            class="postmark relative"
+            v-bind:class="{
+              'h-auto': resizeView && !mobileView,
+              'h-full': !resizeView && !mobileView,
+              }"
           >
         </div>
       </div>
@@ -148,11 +163,15 @@
           <router-view v-if="displayViews"/>
         </div>
         <div
-          class="bg-gradient-to-r from-ns-green to-ns-blue h-22%"
+          class="bg-gradient-to-r from-ns-green to-ns-blue h-22% hidden sm:block"
           v-bind:class="{
               'stretch': !mobileView && !resizeView,
               }"
-        ></div>
+        >
+          <div class="footer text-center">
+            made by Mineralstones OÜ
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -164,9 +183,6 @@ import Ring2 from './Ring2.vue'
 import Map from './Map.vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter, useRoute } from 'vue-router'
-// import {
-//    computed
-// } from 'vue'
 
 export default {
   name: 'Canvas',
@@ -367,40 +383,47 @@ export default {
 .map {
   padding-right: 11%;
 }
-.msg-hello {
-
-}
 .msg {
   padding-top: 5%;
   padding-left: 8%;
   font-weight: normal;
   color: rgb(34, 34, 34);
 }
+
 .msg-header-hello {
   font-weight: bold;
   padding-left: 20%;
   font-size: 2.5vh;
-}
-.msg-header {
-  font-weight: bold;
-  text-align: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  font-size: 3vh;
-  padding-right: 17%;
-
 }
 .msg-header-hello-mobile {
   font-size: 4vw;
   padding-left: 25%;
   font-weight: bold;
 }
+.msg-header-hello-resize {
+  font-size: 2.3vw;
+  padding-left: 20%;
+  font-weight: bold;
+}
+.msg-header {
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 2%;
+  font-size: 3vh;
+  padding-right: 17%;
+}
 .msg-header-mobile {
   font-size: 4vw;
   text-align: center;
   padding-right: 6%;
   padding-bottom: 3%;
-
+}
+.msg-header-resize {
+  font-size: 2vw;
+  text-align: center;
+  padding-right: 6%;
+  padding-bottom: 3%;
 }
 .msg-text-hello {
   padding-right: 40%;
@@ -408,19 +431,26 @@ export default {
   font-size: 1.9vh;
   line-height: 115%;
 }
+.msg-text-hello-mobile {
+  font-size: 2.5vw;
+  padding-right: 40%;
+}
+.msg-text-hello-resize {
+  font-size: 1.5vw;
+  padding-right: 40%;
+}
 .msg-text {
   font-size: 2.1vh;
   padding-right: 17%;
   text-align: justify;
-  /* word-break: break-all; */
-}
-.msg-text-hello-mobile {
-  font-size: 2.5vw;
-  padding-right: 40%;
-
 }
 .msg-text-mobile {
-  font-size: 2.8vw;
+  font-size: 2.5vw;
+  padding-right: 6%;
+  text-align: justify;
+}
+.msg-text-resize {
+  font-size: 1.5vw;
   padding-right: 6%;
   text-align: justify;
 }
@@ -457,7 +487,6 @@ export default {
   filter: drop-shadow(0px 0px 8px rgb(0 0 0 / 0.8));
 }
 .text-resize {
-  margin-top: 10vw;
   z-index: 60;
   font-size: 1.7vw;
 }
@@ -499,5 +528,11 @@ export default {
 .ring9 {
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
   transform: rotate(10deg);
+}
+.footer {
+  padding-top:2vh;
+  padding-right:10vh;
+  font-size:2vh;
+  color: #e97e04;
 }
 </style>
