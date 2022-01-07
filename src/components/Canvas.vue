@@ -367,6 +367,7 @@ export default {
 .landscape {
   margin-left: calc(0px - (50vw - 70vh));
   width: 100%;
+  height: 25vh;
   z-index: -9998;
 }
 .stretch {
