@@ -92,21 +92,60 @@
               'msg-text-resize': !showPostcard && resizeView && !mobileView,
               }">{{ msgText }}</div>
           </div>
-          <Map
+        <iframe
+          v-if="this.$route.name === 'Location' &&  (displayMenu && !mobileView || mobileView && displayViews)"
+          class="p-5% sm:pr-12% absolute z-50 iframe-map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d745.2891489003264!2d25.541022987760506!3d58.10637518233712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46ec83e3750789e7%3A0x966fb42dde276f15!2sNordsteel%20O%C3%9C!5e0!3m2!1sen!2see!4v1642237741553!5m2!1sen!2see"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+        <!-- <Map
             class="absolute z-50 h-full w-full p-5%"
             v-if="this.$route.name === 'Location' &&  (displayMenu && !mobileView || mobileView && displayViews)"
             v-bind:class="{ 'map': !mobileView}"
-          />
-          <iframe
+          /> -->
+          <!-- <iframe
             class="absolute z-50 h-full w-full"
             v-if="this.$route.name === 'Certificates' &&  (displayMenu && !mobileView || mobileView && displayViews)"
             :src=fullPdfUrl
             frameborder="0"
             height="100%"
             width="100%"
-          ></iframe>
-
-          <img v-if="showPostcard"
+          ></iframe> -->
+          <div class="" v-if="this.$route.name === 'Certificates' &&  (displayMenu && !mobileView || mobileView && displayViews)">
+            <div
+              class="absolute z-50 bg-blue-400 pdf1"
+              v-bind:class="{
+                'pdf1': !mobileView,
+                'pdf1-mobile': mobileView,
+                'pdf1-resize': resizeView && !mobileView,
+              }"
+            >
+              <iframe
+                :src=fullPdfUrl
+                frameborder="0"
+                height="100%"
+                width="100%"
+              ></iframe>
+            </div>
+            <div
+              class="absolute z-50 bg-blue-400 pdf2"
+              v-bind:class="{
+                'pdf2': !mobileView,
+                'pdf2-mobile': mobileView,
+                'pdf2-resize': resizeView && !mobileView,
+              }"
+            >
+              <iframe
+                :src=fullPdfUrl
+                frameborder="0"
+                height="100%"
+                width="100%"
+              ></iframe>
+            </div>
+          </div>
+          <img v-if="showPostcard && this.$route.name !== 'Certificates' && this.$route.name !== 'Location'"
             alt="postmark"
             :src="require('@/assets/postmarkLandscape.svg')"
             class="z-40 absolute"
@@ -180,13 +219,13 @@
 <script>
 import { ref, onMounted } from 'vue';
 import Ring2 from './Ring2.vue'
-import Map from './Map.vue'
+// import Map from './Map.vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter, useRoute } from 'vue-router'
 
 export default {
   name: 'Canvas',
-  components: { Ring2, Map },
+  components: { Ring2, /*Map*/ },
   setup() {
     const {t, locale} = useI18n({})
 
@@ -339,6 +378,46 @@ export default {
 </script>
 
 <style scoped>
+.pdf1 {
+  width: 37%;
+  height: 79%;
+  margin-top: 6%;
+  margin-left: 7%;
+}
+.pdf1-resize {
+  width: 40%;
+  height: 34vw;
+  margin-top: 6%;
+  margin-left: 8%;
+}
+.pdf1-mobile {
+  width: 40%;
+  height: 80%;
+  margin-top: 6%;
+  margin-left: 8%;
+}
+.pdf2 {
+  width: 37%;
+  height: 79%;
+  margin-top: 6%;
+  margin-left: 49%;
+}
+.pdf2-resize {
+  width: 40%;
+  height: 34vw;
+  margin-top: 6%;
+  margin-left: 53%;
+}
+.pdf2-mobile {
+  width: 40%;
+  height: 80%;
+  margin-top: 6%;
+  margin-left: 53%;
+}
+.iframe-map {
+  width: 100%;
+  height: 100%;
+}
 .langmenu-mobile > button {
   font-size: 3.6vw;
   padding-right: 2vw;
