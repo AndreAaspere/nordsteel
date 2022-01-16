@@ -215,8 +215,6 @@ export default {
   setup() {
     const {t, locale} = useI18n({})
 
-    console.log(locale.value)
-
     const displayRings = ref(true)
     const displayMenu = ref(false)
     const displayViews = ref(false)
