@@ -22,11 +22,11 @@
                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
               </svg>
             </button>
-            <button :class="locale === 'est' ? 'lang-active' : ''" v-on:click="langMenuClicked('est')">Est</button>
+            <button :class="locale === 'et' ? 'lang-active' : ''" v-on:click="langMenuClicked('et')">Est</button>
             <button :class="locale === 'en' ? 'lang-active' : ''" v-on:click="langMenuClicked('en')">Eng</button>
-            <button :class="locale === 'swe' ? 'lang-active' : ''" v-on:click="langMenuClicked('swe')">Swe</button>
-            <button :class="locale === 'rus' ? 'lang-active' : ''" v-on:click="langMenuClicked('rus')">Rus</button>
-            <button :class="locale === 'fin' ? 'lang-active' : ''" v-on:click="langMenuClicked('fin')">Fin</button>
+            <button :class="locale === 'sv' ? 'lang-active' : ''" v-on:click="langMenuClicked('sv')">Swe</button>
+            <button :class="locale === 'ru' ? 'lang-active' : ''" v-on:click="langMenuClicked('ru')">Rus</button>
+            <button :class="locale === 'fi' ? 'lang-active' : ''" v-on:click="langMenuClicked('fi')">Fin</button>
           </div>
         </div>
       </div>
@@ -214,6 +214,8 @@ export default {
   components: { Ring2 },
   setup() {
     const {t, locale} = useI18n({})
+
+    console.log(locale.value)
 
     const displayRings = ref(true)
     const displayMenu = ref(false)
