@@ -22,8 +22,8 @@
                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
               </svg>
             </button>
-            <button class="" :class="locale === 'est' ? 'lang-active' : ''" v-on:click="langMenuClicked('est')">Est</button>
-            <button :class="locale === 'eng' ? 'lang-active' : ''" v-on:click="langMenuClicked('eng')">Eng</button>
+            <button :class="locale === 'est' ? 'lang-active' : ''" v-on:click="langMenuClicked('est')">Est</button>
+            <button :class="locale === 'en' ? 'lang-active' : ''" v-on:click="langMenuClicked('en')">Eng</button>
             <button :class="locale === 'swe' ? 'lang-active' : ''" v-on:click="langMenuClicked('swe')">Swe</button>
             <button :class="locale === 'rus' ? 'lang-active' : ''" v-on:click="langMenuClicked('rus')">Rus</button>
             <button :class="locale === 'fin' ? 'lang-active' : ''" v-on:click="langMenuClicked('fin')">Fin</button>
@@ -110,7 +110,7 @@
               }"
             >
               <iframe
-                :src=fullPdfUrl
+                :src=fullCertFiUrl
                 frameborder="0"
                 height="100%"
                 width="100%"
@@ -125,7 +125,7 @@
               }"
             >
               <iframe
-                :src=fullPdfUrl
+                :src=fullCertEnUrl
                 frameborder="0"
                 height="100%"
                 width="100%"
@@ -223,8 +223,10 @@ export default {
     const router = useRouter()
     const route = useRoute()
 
-    const pdfUrl = 'https://www.nordsteel.ee/11994-01fi.pdf'
-    const fullPdfUrl = `https://docs.google.com/viewer?url=${pdfUrl}&embedded=true`
+    const certFiUrl = 'https://nordsteel.ee/certificates/11994-01fi.pdf'
+    const fullCertFiUrl = `https://docs.google.com/viewer?url=${certFiUrl}&embedded=true`
+    const certEnUrl = 'https://nordsteel.ee/certificates/11994-01en.pdf'
+    const fullCertEnUrl = `https://docs.google.com/viewer?url=${certEnUrl}&embedded=true`
 
     const initialRatio = window.innerWidth/window.innerHeight;
     resizeView.value = initialRatio < 1.4;
@@ -355,7 +357,8 @@ export default {
       showPostcard,
       menuItemClicked,
       mobileView,
-      fullPdfUrl,
+      fullCertFiUrl,
+      fullCertEnUrl,
       resizeView,
       locale
     }

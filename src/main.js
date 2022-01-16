@@ -18,11 +18,9 @@ function loadLocaleMessages() {
   return messages
 }
 
-// console.log(navigator.language)
-
 const i18n = createI18n({
-  // locale: navigator.language, // set locale
-  locale: 'est', // set locale
+  locale: navigator.language, // set locale
+  // locale: 'est', // set locale
   fallbackLocale: 'en', // set fallback locale
   messages: loadLocaleMessages(), // set locale messages
 })
