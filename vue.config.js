@@ -1,6 +1,6 @@
 module.exports = {
-  publicPath: '/nordsteel/',
-  // publicPath: '/',
+  // publicPath: '/nordsteel/', //for githup-pages
+  publicPath: '/', //for production
 
   pluginOptions: {
     i18n: {
