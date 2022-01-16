@@ -232,6 +232,23 @@ export default {
     resizeView.value = initialRatio < 1.4;
 
     onMounted(async () => {
+      // get geolocation is possible (no adblocks)
+      const availableCountryCodes = {
+        et: 'EE',
+        ru: 'RU',
+        fi: 'FI',
+        se: 'SE',
+        en: 'GB',
+      }
+      fetch("https://api.db-ip.com/v2/free/self")
+        .then(response => response.json())
+        .then(data => {
+          const index = Object.values(availableCountryCodes).indexOf(data.countryCode)
+          if(Object.values(availableCountryCodes).indexOf(data.countryCode) > -1) {
+            langMenuClicked(Object.keys(availableCountryCodes)[0])
+          }
+        });
+
       await router.isReady()
 
       if (route.path !== '/') {
@@ -285,6 +302,9 @@ export default {
 
     let defaultTranslations = getTranslatedMessages()
     let messages = ref(defaultTranslations)
+
+
+
 
     function langMenuClicked(lang) {
       locale.value = lang
