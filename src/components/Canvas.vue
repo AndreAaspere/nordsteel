@@ -508,7 +508,7 @@ export default {
 .msg-text-hello {
   padding-right: 40%;
   margin-left: -2%;
-  font-size: 1.9vh;
+  font-size: 2.1vh;
   line-height: 115%;
 }
 .msg-text-hello-mobile {
@@ -540,7 +540,6 @@ export default {
 .view-mobile {
   padding-top: 8%;
   text-align: center;
-
 }
 .menu {
   padding: 15%;
