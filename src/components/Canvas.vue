@@ -14,11 +14,11 @@
           >
           <img alt="landscapeMobile" class="w-full sm:w-full mt-8% absolute sm:hidden" :src="require('@/assets/landscapeMobile.svg')">
         </div>
-        <div class="relative h-1/3 sm:w-1/2 sm:h-full z-10 flex justify-end">
+        <div class="relative h-1/3 sm:w-1/2 sm:h-full z-40 flex justify-end">
            <!-- langmenu -->
-          <div class="flex p-2 mt-2% h-1/3" v-bind:class="{ 'langmenu': !mobileView, 'langmenu-mobile': mobileView}">
-            <button>
-              <svg v-on:click="openMenuClicked()" class="hamburger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+          <div class="flex mt-2% h-full sm:h-1/3" v-bind:class="{ 'langmenu': !mobileView, 'langmenu-mobile': mobileView}">
+            <button class="h-full">
+              <svg v-on:click="openMenuClicked()" class="hamburger h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
               </svg>
             </button>
@@ -419,7 +419,7 @@ export default {
 .langmenu .hamburger {
   margin-top: -0.2vh;
   margin-right: 2vh;
-  height: 4vh;
+  height: 3.8vh;
 }
 .langmenu-mobile .hamburger {
   margin-top: -0.3vw;
