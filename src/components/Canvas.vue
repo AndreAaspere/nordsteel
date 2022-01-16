@@ -100,19 +100,6 @@
           allowfullscreen=""
           loading="lazy"
         ></iframe>
-        <!-- <Map
-            class="absolute z-50 h-full w-full p-5%"
-            v-if="this.$route.name === 'Location' &&  (displayMenu && !mobileView || mobileView && displayViews)"
-            v-bind:class="{ 'map': !mobileView}"
-          /> -->
-          <!-- <iframe
-            class="absolute z-50 h-full w-full"
-            v-if="this.$route.name === 'Certificates' &&  (displayMenu && !mobileView || mobileView && displayViews)"
-            :src=fullPdfUrl
-            frameborder="0"
-            height="100%"
-            width="100%"
-          ></iframe> -->
           <div class="" v-if="this.$route.name === 'Certificates' &&  (displayMenu && !mobileView || mobileView && displayViews)">
             <div
               class="absolute z-50 bg-blue-400 pdf1"
@@ -219,13 +206,12 @@
 <script>
 import { ref, onMounted } from 'vue';
 import Ring2 from './Ring2.vue'
-// import Map from './Map.vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter, useRoute } from 'vue-router'
 
 export default {
   name: 'Canvas',
-  components: { Ring2, /*Map*/ },
+  components: { Ring2 },
   setup() {
     const {t, locale} = useI18n({})
 
