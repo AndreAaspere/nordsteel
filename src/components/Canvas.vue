@@ -37,13 +37,13 @@
           <div v-if="displayRings" class="w-full flex flex-row">
             <div class="sm:w-1/2">
               <!-- ring 1 -->
-              <Ring2 id="ring1" class="ring1 w-80% sm:w-0% sm:mt-70% ml-10% sm:ml-10%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave"/>
+              <Ring2 id="ring1" class="ring ring1 w-80% sm:w-0% sm:mt-70% ml-10% sm:ml-10%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave"/>
             </div>
             <div class="sm:w-1/2 h-full flex flex-row sm:flex-col">
               <!-- ring 2 -->
-              <div><Ring2 id="ring2" class="ring2 w-70% sm:w-90% ml-20% sm:ml-0 sm:mt-40%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              <div><Ring2 id="ring2" class="ring ring2 w-70% sm:w-90% ml-20% sm:ml-0 sm:mt-40%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
               <!-- ring 3 -->
-              <div><Ring2 id="ring3" class="ring3 w-60% sm:w-55% sm:mt-10% ml-20% sm:ml-35%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
+              <div><Ring2 id="ring3" class="ring ring3 w-60% sm:w-55% sm:mt-10% ml-20% sm:ml-35%" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" /></div>
             </div>
           </div>
           <div v-if="!displayRings && mobileView" class="absolute w-full h-2 mt-2 bg-gradient-to-r from-ns-blue via-ns-green to-ns-blue"></div>
@@ -169,20 +169,20 @@
             <div class="w-full sm:w-1/2 flex flex-row">
               <Ring2
                 id="ring4"
-                class="ring4 ml-5% mt-0 w-25% sm:h-30vh sm:w-30vh sm:mt-min18vh sm:ml-3vh relative sm:absolute"
+                class="ring ring4 ml-5% mt-0 w-25% sm:h-30vh sm:w-30vh sm:mt-min18vh sm:ml-3vh relative sm:absolute"
                 v-bind:class="{
                   'ring4-resize': !mobileView && resizeView,
                 }"
                 v-on:mouseover="mouseover"
                 v-on:mouseleave="mouseleave" 
               />
-              <Ring2 class="ring5 sm:ml-40% w-38%" id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
-              <Ring2 class="ring6 h-80% w-25% mt-4% sm:ml-min2%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring ring5 sm:ml-40% w-38%" id="ring5" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring ring6 h-80% w-25% mt-4% sm:ml-min2%" id="ring6" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
             <div class="w-full h-full sm:w-1/2 flex flex-row">
-              <Ring2 class="ring7 w-30% ml-5% sm:ml-3%" id="ring7" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
-              <Ring2 class="ring8 w-20% ml-5% sm:ml-3% sm:w-22%" id="ring8" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
-              <Ring2 class="ring9 w-30% ml-5% sm:ml-3%" id="ring9" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring ring7 w-30% ml-5% sm:ml-3%" id="ring7" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring ring8 w-20% ml-5% sm:ml-3% sm:w-22%" id="ring8" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
+              <Ring2 class="ring ring9 w-30% ml-5% sm:ml-3%" id="ring9" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave" />
             </div>
           </div>
           <div v-if="displayViews && mobileView" class="cursor-pointer pl-80%" v-on:click="openMenuClicked()">>></div>
@@ -579,43 +579,62 @@ export default {
   font-size: 1.7vw;
 }
 .ring1 {
-  transform: rotate(-40deg);
-  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+  --c: -40deg;
+  transform: rotate(var(--c));
 }
 .ring2 {
-  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-
+  --c: 0deg;
 }
 .ring3 {
-  transform: rotate(10deg);
-  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-
+  --c: 10deg;
+  transform: rotate(var(--c));
 }
 .ring4-resize {
   width: 20vw;
 }
 .ring4 {
-  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+  --c: 0deg;
 }
 .ring5 {
-  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-  transform: rotate(10deg);
+  --c: 10deg;
+  transform: rotate(var(--c));
 }
 .ring6 {
-  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-  transform: rotate(50deg);
+  --c: 50deg;
+  transform: rotate(var(--c));
 }
 .ring7 {
-  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-  transform: rotate(10deg);
+  --c: 10deg;
+  transform: rotate(var(--c));
 }
 .ring8 {
-  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-  transform: rotate(30deg);
+  --c: 30deg;
+  transform: rotate(var(--c));
 }
 .ring9 {
+  --c: 10deg;
+  transform: rotate(var(--c));
+}
+.ring {
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-  transform: rotate(10deg);
+  --tw-ring-color: rgba(0, 0, 0, 0);
+}
+.ring:hover {
+  -webkit-animation: rotation 1.2s infinite linear;
+  -moz-animation: rotation 1.2s infinite linear;
+  animation: rotation 1.2s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(var(--c));
+    -webkit-transform: rotate(var(--c));
+    -moz-transform: rotate(var(--c));
+  }
+  to {
+    transform: rotate(calc(360deg + var(--c)));
+    -webkit-transform: rotate(calc(360deg + var(--c)));
+    -moz-transform: rotate(calc(360deg + var(--c)));
+  }
 }
 .footer {
   padding-top:2vh;

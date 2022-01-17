@@ -1,7 +1,7 @@
 <template>
   <img
     alt="RingA"
-    class="cursor-pointer hover:animate-spin"
+    class="cursor-pointer"
     :src="require('@/assets/ring.svg')"
   >
 </template>
