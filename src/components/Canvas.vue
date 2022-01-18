@@ -95,6 +95,10 @@
         <iframe
           v-if="this.$route.name === 'Location' &&  (displayMenu && !mobileView || mobileView && displayViews)"
           class="p-5% sm:pr-12% absolute z-50 iframe-map"
+          v-bind:class="{	
+            'iframe-map': !mobileView,
+            'iframe-map-resize': resizeView && !mobileView,
+          }"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d745.2891489003264!2d25.541022987760506!3d58.10637518233712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46ec83e3750789e7%3A0x966fb42dde276f15!2sNordsteel%20O%C3%9C!5e0!3m2!1sen!2see!4v1642237741553!5m2!1sen!2see"
           style="border:0;"
           allowfullscreen=""
@@ -426,6 +430,10 @@ export default {
 .iframe-map {
   width: 100%;
   height: 100%;
+}
+.iframe-map-resize {
+  width: 70vw;
+  height: 42vw;
 }
 .langmenu-mobile > button {
   font-size: 3.6vw;
