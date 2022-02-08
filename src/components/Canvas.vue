@@ -190,7 +190,7 @@
             </div>
           </div>
           <div v-if="displayViews && mobileView" class="cursor-pointer pl-80%" v-on:click="openMenuClicked()">>></div>
-          <router-view v-if="displayViews"/>
+          <router-view v-if="displayViews" :view="{resizeView: resizeView, mobileView: mobileView}"/>
         </div>
         <div
           class="bg-gradient-to-r from-ns-green to-ns-blue h-22% hidden sm:block"

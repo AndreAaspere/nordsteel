@@ -20,7 +20,8 @@
     "team": {
       "productionmanager": "Tootmisjuht",
       "develpomentmanager": "Arendusjuht",
-      "projectmanager": "Projektijuht"
+      "projectmanager": "Projektijuht",
+      "salesmanager": "Müügijuht"
     },
     "vacancy": ""
   },

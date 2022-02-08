@@ -20,7 +20,8 @@
     "team": {
       "productionmanager": "Tuotantopäällikkö",
       "develpomentmanager": "Tekninen ja hallinnollinen johtaja",
-      "projectmanager": "Projektipäällikkö"
+      "projectmanager": "Projektipäällikkö",
+      "salesmanager": "Myyntipäällikkö"
     },
     "vacancy": ""
   },

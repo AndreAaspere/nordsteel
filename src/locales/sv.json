@@ -20,7 +20,8 @@
     "team": {
       "productionmanager": "Produktionschef",
       "develpomentmanager": "Teknisk och administrativ chef",
-      "projectmanager": "Projektledare"
+      "projectmanager": "Projektledare",
+      "salesmanager": "Försäljningschef"
     },
     "vacancy": ""
   },

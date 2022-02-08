@@ -21,9 +21,11 @@
       "productionmanager": "Production Manager",
       "develpomentmanager": "Technical and Administrative Manager",
       "projectmanager": "Project manager",
+      "salesmanager": "Sales Manager",
       "kuido": "Kuido Kasak",
       "tarmo": "Tarmo Soots",
-      "johannes": "Johannes Kasak"
+      "johannes": "Johannes Kasak",
+      "mati": "Mati Vender"
     },
     "vacancy": ""
   },
